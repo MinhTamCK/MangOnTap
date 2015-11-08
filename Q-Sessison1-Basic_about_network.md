@@ -1,5 +1,5 @@
 # Phần 1.Các khái niệm cơ bản trong mạng máy tính
-
+=================================================
 1.Topology là gì?
     -
 2.Protocol là gì?
@@ -17,4 +17,4 @@
 8.Intranet là gì?
    -
 9.Extranet là gì?
-    -
+   -
