@@ -1,0 +1,27 @@
+- var total = 1170;
+- var col1 = (282/total*100)
+- var col2 = (170/total*100)
+- var col3 = (175/total*100)
+- var col4 = (298/total*100)
+- var col5 = (245/total*100)
+.ig-table
+  p.hint-text Cherchez des indications géographiques en saisissant par exemple un nom d'indication, un nom de département ou de commune, un code postal, un numéro de demande ou d'homologation.
+  include tool-box
+  .table-responsive.visible-md-up: +table(
+    [
+      {attr: {'data-width': col1 + '%'}, link: {title: 'Nom de l’indication géographique'}},
+      {attr: {'data-width': col2 + '%'}, link: {title: 'N° d’homologation'}},
+      {attr: {'data-width': col3 + '%'}, link: {title: 'Date d’homologation'}},
+      {attr: {'data-width': col4 + '%'}, link: {title: 'Date de dépôt'}},
+      {attr: {'data-width': col5 + '%'}, link: {title: 'N° de la demande'}}
+    ],
+    [
+      ['<a href="#" title="géographique3" class="title grey">géographique3</a>', '&nbsp;', '13/05/2014','IG 15-003', '<span class="status">Enquête publique<i class="icon icon-ok"></i></span>'],
+      ['<a href="#" title="géographique3" class="title">géographique3</a>','&nbsp;', '13/05/2014','IG 15-003', '<span class="status">Enquête publique<i class="icon icon-ok"></i></span>'],
+      ['<a href="#" title="géographique3" class="title">géographique3&nbsp;<span>Marseille</span></a>','&nbsp;', '13/05/2014','IG 15-003', '<span class="status">Enquête publique<i class="icon icon-ok"></i></span>'],
+      ['<a href="#" title="géographique3" class="title">géographique3&nbsp;<span>Marseille</span></a>','&nbsp;', '13/05/2014','IG 15-003', '<span class="status">Enquête publique<i class="icon icon-ok"></i></span>'],
+      ['<a href="#" title="géographique3" class="title">géographique3&nbsp;<span>Marseille</span></a>','&nbsp;', '13/05/2014','IG 15-003', '<span class="status">Enquête publique<i class="icon icon-ok"></i></span>']
+    ]
+  ).table(data-table-width)
+  include table-mobile
+  include tool-box-bottom

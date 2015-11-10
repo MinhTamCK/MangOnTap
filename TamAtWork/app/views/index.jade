@@ -1,0 +1,21 @@
+extends layouts/layout
+
+block vars
+  -title = 'Homepage'
+  -bodyClass = 'home'
+  -menuIndex = 0
+  -titleEnquiry = 'Dernières ouvertures d’enquête publique'
+  -titleEnquiry1 = 'Dernières homologations'
+
+block container
+  include blocks/guide
+  include blocks/list-button
+  include blocks/table-public-enquiry
+
+  script(id="demo-template",type="text/x-handlebars-template")
+    {{#each listIG}}
+    <tr>
+      <td><a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a></td>
+      <td>{{date}}</td>
+    </tr>
+    {{/each}}

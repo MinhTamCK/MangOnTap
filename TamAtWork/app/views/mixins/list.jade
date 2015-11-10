@@ -1,0 +1,6 @@
+mixin second-nav(navObj)
+  ul&attributes(attributes)
+    each item, key in navObj
+      - var active = ''
+      - if (key === menuIndex) active = 'active'
+      li(role=item.role, class=active): +link(item)(class=item.cls)

@@ -1,0 +1,80 @@
+.tool-box {
+  overflow: hidden;
+  margin: rem-calc(30px 0);
+  text-align: center;
+  &.tool-box-bottom {
+    margin-bottom: rem-calc(60px);
+  }
+  .pagination {
+    margin: 0;
+    .btn-control {
+      float: left;
+      padding: rem-calc(14px 21px);
+      background-color: $gray-4;
+      color: $black;
+      border-radius: 0;
+      .icon {
+        font-size: rem-calc(8px);
+      }
+      .no-touch &:hover {
+        background-color: $gray-1;
+        text-decoration: none;
+      }
+    }
+    .pagination-block {
+      float: left;
+      margin: rem-calc(0 10px);
+    }
+    .form-control {
+      float: left;
+      width: 48px;
+      height: 50px;
+      border-radius: 0;
+      border-color: $gray-1;
+      font-family: $font-inpi-bold;
+      color: $gray-3;
+      text-align: center;
+      padding: rem-calc(12px 10px);
+    }
+    .total-number {
+      float: left;
+      position: relative;
+      padding: rem-calc(12px 9px 12px 16px);
+      line-height: rem-calc(26px);
+      font-family: $font-inpi-bold;
+      color: $gray-3;
+      &:before {
+        content: '/';
+        position: absolute;
+        top: 50%;
+        left: 9px;
+        margin-top: rem-calc(-13px);
+      }
+    }
+  }
+}
+@media #{$screen-xs-only} {
+  .tool-box {
+    .btn-1 {
+      margin: rem-calc(0 24px 20px 24px);
+      display: block;
+      padding-top: rem-calc(13px);
+      padding-bottom: rem-calc(13px);
+    }
+  }
+}
+@media #{$screen-sm-up} {
+  .tool-box {
+    .btn-group {
+      float: left;
+      width: auto;
+    }
+    .pagination, .inner {
+      float: right;
+    }
+    .btn-1 {
+      float: left;
+      margin-right: rem-calc(20px);
+    }
+  }
+}
