@@ -10,73 +10,80 @@
  *    init
  *    destroy
  */
-;(function($,window, undefined) {
+;(function($, window, undefined) {
   'use strict';
 
   var pluginName = 'sort-table';
-  var templateDestop = '<script id="table-template" type="text/x-handlebars-template">{{#each listIG}}<tr><td><a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a></td><td>{{date}}</td></tr>{{/each}}';
+  var templateDestop = '{{#each listIG}}<tr><td><a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a></td><td>{{date}}</td></tr>{{/each}}';
+  var tenplateMobile = '{{#each listIG}}<div class="items"><div class="item"><div class="col-left">{{titleName}}</div><div class="col-right"><a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a></div></div><div class="item"> < div class = "col-left" > { {titleDate}} < /div> < div class = "col-right" > { {date}} < /div> < /div > < /div> { {/each}}';
+  var outerDims = {
+    width: $(window).width()
+  };
+  var dataTable = {
+    'listIG': [{
+      'titleName': '',
+      'link': {
+        'url': 'test',
+        'title': '',
+        'text': 'abc1'
+      },
+      'titleDate': '',
+      'date': '12/1/2000'
+    }, {
+      'titleName': '',
+      'link': {
+        'url': 'test2',
+        'title': '',
+        'text': 'abc2'
+      },
+      'titleDate': '',
+      'date': '12/1/1000'
+    }]
+  };
 
-	// var dataTable = {
-	// 	'listIG': [{
-	// 		'link': {
-	// 			'url': 'demo',
-	// 			'title': '',
-	// 			'text': 'abc'
-	// 		},
-	// 		'date': '12/1/2000'
-	// 	}],
-	// 	'listIGMobile': [{
-	// 		'titleName': '',
-	// 		'link': {
-	// 			'url': '',
-	// 			'title': '',
-	// 			'text': ''
-	// 		},
-	// 		'titleDate': '',
-	// 		'date': ''
-	// 	}]
-	// };
-  var theTemplateScript = $.parseHTML( templateDestop );
-  console.log('theTemplateScript',theTemplateScript);
-	// // Compile the template
- //  var theTemplate = Handlebars.compile(theTemplateScript);
- //  	// Pass our data to the template
- //  var theCompiledHtml = theTemplate(dataTable.listIG);
- //  console.log(theCompiledHtml);
+  var reLoadTable = function reLoadTable(tbody) {
+    var template = '';
+    var tbodyHtml = '';
+    if (991 < outerDims.width) {
+      template = Handlebars.compile(templateDestop);
+    } else {
+      template = Handlebars.compile(tenplateMobile);
+    }
+    tbodyHtml = template(dataTable);
+    tbody.html(tbodyHtml);
+  };
+
+  $(window).on('resize', function() {
+    outerDims.width = $(window).width();
+  });
 
   function Plugin(element, options) {
     this.element = $(element);
-    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
+    this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options, dataTable);
     this.init();
   }
 
   Plugin.prototype = {
     init: function() {
-      // var that = this,
-      //   el = that.element;
-        // var tbody = el.find('tbody');
-        // console.log(tbody);
-        // console.log(Handlebars);
-        // var handlebars = Handlebars;
-        // console.log(handlebars);
-      // var thList = el.find('th');
-      // // Get list tr tag
-      // var trList = el.find('tbody tr');
-      // // Get data follow sort
-      // var dataTable = [];
-      // thList.each(function(index) {
-      //   dataTable[index] = [];
-      //   trList.each(function(i, elTr) {
-      //     $(elTr).find('td').each(function(j, elTd) {
-      //       if(index === j)
-      //       {
-      //         dataTable[index].push($(elTd).text());
-      //       }
-      //     });
-      //   });
-      // });
-      // console.log(dataTable);
+      var that = this,
+        el = that.element,
+        tbody = el.find('tbody'),
+        thList = el.find('th');
 
+      thList.each(function() {
+        // Handele on lick for button sort
+        $(this).find('a').on('click', function() {
+          var btnSort = $(this);
+          if (btnSort.hasClass('asc-sort')) {
+            dataTable.listIG.reverse();
+            btnSort.removeClass('asc-sort');
+          } else {
+            dataTable.listIG.reverse();
+            btnSort.addClass('asc-sort');
+          }
+          reLoadTable(tbody);
+        });
+      });
     },
     destroy: function() {
       // remove events
