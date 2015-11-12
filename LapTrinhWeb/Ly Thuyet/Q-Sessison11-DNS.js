@@ -1,3 +1,3 @@
-# Phần 5.Các loại phương tiện truyền dẫn trong LANs.
+# Phần 11.Dịch vụ DNS.
 =================================================
 1.
