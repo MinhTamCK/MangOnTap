@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<title>index</title>
+		<link rel='stylesheet' type='text/css' href='style.css'>
+        <style>
+            .form-style{
+                border:1px solid;
+            }
+        </style>
+		<script type='text/javascript'>
+			function validationForm(form)
+			{
+                // Check image
+				var imgTypeList = ['jpg','png','gif'];
+				var dem = 0;
+                var imagePath = form.imgFile.value.toLowerCase();
+				for(var i =0;i<imgTypeList.length;i++)
+				{
+					if(imagePath.indexOf(imgTypeList[i]) != -1)
+					{
+						dem++;
+					}
+				}
+				if(dem == 0)
+				{
+					var message = document.getElementById('message');
+					message.innerHTML = 'Not image!';
+					return false;
+				}
+                
+				if(form.decription.value =='')
+				{
+					var message = document.getElementById('message');
+					message.innerHTML = 'Decription not empty!';
+					return false;
+				}
+				return true;
+			};
+		</script>
+	</head>
+	<body>
+		<div class='container'>
+            <div class='form-style'>
+                <form action='XLUpload.php' method='post' onsubmit='return validationForm(this)'>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td><label> Image Upload</label></td>
+                                <td><input type='file' name='imgFile' /></td>
+                            </tr>
+                            <tr>
+                                <td><label>Decription*</label></td>
+                                <td><input type='text' name='decription' /></td>
+                            </tr>
+                             <tr>
+                                <td><p id='message' class='message'></p></td>
+                            </tr>
+                            <tr>
+                                <td><input type='submit' value='Upload File'></td>
+                                <td><input type='button' value='Reset'></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </form>
+            </div>
+		</div>
+	</body>
+</html>
