@@ -66,4 +66,7 @@
   10.1 Unicast( 1 node - 1 node)
   10.2 Broadcast(1 node - n node)
   10.3 Multicast( 1node - group node)
-  10.4 Anycast
+  10.4 Anycast(1 node - random node)
+11. Throught ( thông lượng).
+ - là lượng băng thông thực tế.
+12. Các phương tiện truyền dẫn: Không dây và có dây.
