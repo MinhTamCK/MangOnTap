@@ -1,0 +1,41 @@
+body{
+	margin: 0;
+	padding: 0;
+}
+
+#container{
+	margin: auto;
+	width: 960px;
+	min-height: 300px;
+	padding: 0;
+	border: 1px solid #000;
+}
+
+#header{
+	padding: 10px;
+	border: 1px solid #000;
+	height: 100px;	
+}
+
+#menu{
+	padding: 10px;
+	width: 240px;
+	float: left;
+}
+
+#content{
+	width: 656px;
+	margin: 10px;
+	border: 1px solid #000;
+	min-height: 300px;
+	float: left;
+	padding: 10px;
+}
+
+#footer{
+	height: 50px;
+	line-height: 50px;
+	border: 1px solid #000;
+	text-align: center;
+	clear: both;
+}
