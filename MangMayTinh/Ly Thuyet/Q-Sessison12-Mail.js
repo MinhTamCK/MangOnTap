@@ -20,3 +20,15 @@
 5.Chuẩn MIME dùng để làm gì?
   -MIME(Multipurpose Internet Mail Extensions) là một chuẩn internet về định dạng cho thư điện tử.
 6.Các thành phần trong hệ thống mail server.
+	a.Mail box
+	b.User Agent
+		-Mail User Agent (MUA): đây là các chương trình gửi và nhận mail được cài đặt trên máy người dùng,
+		 nó giúp người dùng quản lý, soạn thảo, nhận và gửi mail một cách tiện lợi và nhanh chóng.
+		 Các chương trình MUA tiêu biểu là: Outlook (Windows), Evolution (Linux), ThunderBird va Eudora.
+	c.Message queue
+		-Là một mô hình giao tiếp truyền tin bất đồng bộ.Có nghĩa là việc trao đổi giữa người gửi và
+		người nhận không cần xảy ra đồng thời,tại cùng một thời điểm.Người gửi có thể đẩy tin cần gửi vào
+		các hàng đợi và sau đó một số tiền trình độc lập sẽ đẩy tin từ hàng đợi đến người nhận.
+	d.Message transfer agent(MTA)
+		-Là một dịch vụ trên máy tính có nhiệm vụ chuyển Email từ máy tính đến một nơi khác (Mail Delivery Agent).
+		-Các chương trình cung cấp dịch vụ MTA tiêu biểu là: Qmail, Sendmail, Postfix (Linux), Edge/Hub Tranpost của MS Exchange Server (Windows).
