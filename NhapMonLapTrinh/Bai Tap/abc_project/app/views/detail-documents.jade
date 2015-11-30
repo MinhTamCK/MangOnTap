@@ -1,0 +1,11 @@
+extends layouts/layout
+
+block vars
+  -title = 'Detail Documents'
+  -bodyClass = 'detail-documents'
+  -isDocuments = true
+  -isToolButton = true
+block container
+  +detail-block()
+    .tab-content
+      include blocks/pdf-viewer
