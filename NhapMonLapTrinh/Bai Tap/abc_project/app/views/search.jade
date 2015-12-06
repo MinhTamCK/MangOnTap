@@ -1,0 +1,13 @@
+extends layouts/layout
+
+block vars
+  -title = 'Search'
+  -bodyClass = ''
+  -menuIndex = 0
+  -isSearch = true
+
+block container
+  include blocks/guide
+  include blocks/list-button
+  include blocks/table-search-result
+

@@ -1,0 +1,45 @@
+extends layouts/layout
+
+block vars
+  -title = 'Detail Descrption'
+  -bodyClass = 'detail-descrption'
+  -isToolButton = true
+  -isDownload = true
+block container
+  +detail-block()
+    .tab-content
+      include blocks/table-tab
+      .list-infomation
+        .row
+          .col-sm-6
+            h2.title-1 Organisme de défense et de gestion
+            +infomation-block({
+              title: 'Les fabricants de raquette du Pays basque',
+              items: ['56 rue de la pelote', '64200 Biarritz', 'France', 'N° Siren: 755836543']
+            }).information-block
+          .col-sm-6
+            h2.title-1 Mandataire
+            +infomation-block({
+              title: 'Les fabricants de raquette du Pays basque',
+              items: ['56 rue de la pelote', '64200 Biarritz', 'France', 'N° Siren: 755836543']
+            }).information-block
+        .collapse-block
+          include blocks/accordion
+      .table-opinions
+        h3.title-1 Avis et décisions au BOPI
+        .table-responsive.visible-md-up: +table(
+          [
+            {link: {title: 'Nom de l’indication géographique', href:'javascript:void(0)'}},
+            {link: {title: 'N° d’homologation', href:'javascript:void(0)'}},
+            {link: {title: 'Date de dépôt', href:'javascript:void(0)'}}
+          ],
+          [
+            ['<a href="#" title="géographique3" class="title grey">géographique3</a>', '13/05/2014', 'IG 15-003'],
+            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014', 'IG 15-003'],
+            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003'],
+            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003'],
+            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003']
+          ]
+        ).table.table-layout-fixed
+        include blocks/table-mobile
+  p.date-update.text-center Dernière mise à jour de la base de données : 18/06/2015

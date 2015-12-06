@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Đệ quy</title>
+  <script type="text/javascript">
+    window.onload = function()
+    {
+      // var gt = 3;
+      // console.log(tinhGiaiThua(gt));
+      // vongLapDeQuy(100);
+      console.log('dayFibonaci',dayFibonaci(4));
+    };
+    var tinhGiaiThua = function tinhGiaiThua(gt)
+    {
+      if(gt == 1)
+      {
+        return 1;
+      }
+      console.log('stack',gt*tinhGiaiThua(gt-1));
+      return gt*tinhGiaiThua(gt-1);
+    };
+    var vongLapDeQuy = function vongLapDeQuy(gt)
+    {
+      if(gt === 0)
+      {
+        console.log(gt);
+        return;
+      }
+      console.log(gt);
+      vongLapDeQuy(gt - 1);
+    };
+    var dayFibonaci = function dayFibonaci(n)
+    {
+      if(n < 3)
+      {
+        return 1;
+      }
+      return dayFibonaci(n - 1) + dayFibonaci(n-2);
+    };
+  </script>
+</head>
+<body>
+</body>
+</html>
