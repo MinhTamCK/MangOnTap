@@ -17,12 +17,13 @@
         h2.title-1 Couverture
       #filterOne.collapse.in
         .collapse-body
-          p La base des indications géographiques (IG) comprend les données relatives à la totalité des demandes d’IG faîtes à l’INPI à partir de la publication au BOPI de leur premier avis d’ouverture d’enquête publique. Les IG portant les statuts légaux « Demande rejetée » et « Homologation retirée » sont conservées dans la base de données.
-          +link({title: 'Lire la suite', href: '#'}).btn.btn-icon.link-3
-            span.icon.icon-right
-            |Lire la suite
+          .description-topic(data-collapse-page)
+            p La base des indications géographiques (IG) comprend les données relatives à la totalité des demandes d’IG faîtes à l’INPI à partir de la publication au BOPI de leur premier avis d’ouverture d’enquête publique. Les IG portant les statuts légaux « Demande rejetée » et « Homologation retirée » sont conservées dans la base de données.
+            +link({title: 'Lire la suite', href: 'javascript:void(0)'}).btn.btn-icon.link-3
+              span.icon.icon-right
+              |Lire la suite
         .panel.panel-1
-          .panel-body
+          .panel-body(data-ajax-question='1')
             p.text Cette réponse vous a été utile ?
             .btn-group-2
               +button({name: 'yes', type: 'button'}).btn.btn-2 Oui

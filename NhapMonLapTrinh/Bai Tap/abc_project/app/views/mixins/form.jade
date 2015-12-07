@@ -57,9 +57,7 @@ mixin checkbox-custom (opts)
   -if(typeof(opts.id) === 'undefined') opts.id = opts.name
   -if(typeof(opts.checked) === 'undefined') opts.checked = false
   .checkbox-custom&attributes(attributes)
-    input(name=opts.name, id=opts.id, type="checkbox", checked=opts.checked)
-    label(for=opts.id).label-control
-      if block
-        block
-      else
-        !=opts.textLabel
+    input(name=opts.name, id=opts.id, type="checkbox", checked=opts.checked, data-checkbox-download=opts.data)
+    label(for=opts.id).label-control!=opts.textLabel
+    if block
+      block

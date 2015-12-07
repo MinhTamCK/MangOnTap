@@ -15,7 +15,21 @@
   .media-left {
     padding-right: rem-calc(20px);
     .icon {
-      font-size: rem-calc(60px);
+      display: block;
+      height: rem-calc(60px);
+      width: rem-calc(48px);
+    }
+    .document-tousles {
+      background: url('../images/icon-document.png') no-repeat;
+      background-size: 100%;
+    }
+    .document-cours {
+      background: url('../images/icon-document-2.png') no-repeat;
+      background-size: 100%;
+    }
+    .document-selectionne {
+      background: url('../images/icon-document-3.png') no-repeat;
+      background-size: 100%;
     }
   }
   .media-body {

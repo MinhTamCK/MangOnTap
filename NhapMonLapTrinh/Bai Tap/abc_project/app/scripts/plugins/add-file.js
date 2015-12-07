@@ -14,27 +14,25 @@
   'use strict';
 
   var pluginName = 'add-file';
-  var id = 1;
 
-  var addFile = function(fileName, ulTag,fileTemp) {
+
+  var addFile = function(fileName, ulTag, fileTemp) {
     fileTemp.addClass('hidden');
-    fileTemp.attr({
-      name: 'pj'+id,
-      id: 'pj'+id
-    });
+    fileTemp.attr('name','pjfile[]');
+    fileTemp.removeAttr('id');
     var htmlItem = '<li><div class="thumbnail thumbnail-1"><img src="images/icon-document-2.png" alt="File"><div class="caption"><p>' + fileName + '</p></div><button type="button" name="delete" id="delete" title="delete" class="btn btn-1 orange">Supprimer</button></div></li>';
     htmlItem = $(htmlItem);
     htmlItem.append(fileTemp);
     ulTag.append(htmlItem);
     // Set action remove item
     setActionRemoveItem(ulTag.find('li').last());
-    id++;
+
   };
 
   var setActionRemoveItem = function(li) {
     li.find('#delete').bind('click', function() {
       li.remove();
-      id--;
+
     });
   };
 
@@ -51,12 +49,12 @@
         ulTag = el.find('ul.list-file');
       el.find('#file-upload').change(function() {
         var file = $(this);
-        var fileTemp = file.clone(true);
+        var fileTemp =  $(this).clone(true);
         file = file.val();
         if (file) {
           // Add list file
           file = file.replace(/^.*[\\\/]/, '');
-          addFile(file, ulTag,fileTemp);
+          addFile(file, ulTag, $(fileTemp));
         }
       });
     },

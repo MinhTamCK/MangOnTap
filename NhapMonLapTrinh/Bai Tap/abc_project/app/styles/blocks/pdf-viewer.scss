@@ -17,7 +17,7 @@
   .checkbox-list {
     padding-bottom: rem-calc(16px);
     .title-4 {
-      margin: rem-calc(20px 0 15px 0);
+      margin: rem-calc(21px 0 18px 0);
       padding-left: rem-calc(30px);
       font-family: $font-inpi-bold;
       font-size: rem-calc(16px);
@@ -25,6 +25,7 @@
     .checkbox-custom {
       padding: rem-calc(14px 30px);
       position: relative;
+      clear: both;
       &:before {
         content: '';
         position: absolute;
@@ -41,23 +42,37 @@
         z-index: 3;
       }
       .label-control {
+        position: absolute;
+        top: 50%;
+        margin-top: rem-calc(-10px);
         margin-bottom: 0;
-        word-wrap: break-word;
+        float: left;
+        min-height: rem-calc(20px);
+        padding-left: rem-calc(20px);
       }
+      a {
+        margin-left: rem-calc(35px);
+      }
+    }
+    a {
+      display: inline-block;
+      word-wrap: break-word;
     }
     .download-file { display: none;}
-    .checkbox-custom {
-      &.active , &:hover{
-        background-color: $orange-2;
-        &:before {
-          border-top-color: $orange-2;
-          opacity: 1;
+    .group-checkbox {
+      &.active,.no-touch &:hover {
+        .checkbox-custom {
+          background-color: $orange-2;
+          &:before {
+            border-top-color: $orange-2;
+            opacity: 1;
+          }
         }
-        .label-control a { color: $white;}
+         a {
+          color: $white;
+          text-decoration: none;
+        }
       }
-    }
-    .active {
-      .download-file { display: block;}
     }
   }
   .viewer-block {
@@ -164,6 +179,11 @@
   .pdf-viewer {
     .col-left { padding-top: rem-calc(30px);}
     .col-right { display: none; }
+    .checkbox-list {
+      .group-checkbox.active {
+        .download-file { display: block;}
+      }
+    }
   }
 }
 @media only screen and (min-width: 768px) {
@@ -202,11 +222,11 @@
     border: 1px solid $gray-1;
     border-top: 0;
     .col-left {
-      width: percentage(376px/1110px);
+      width: 50%;
       border-right: 0;
     }
     .col-right {
-      width: percentage(734px/1110px);
+      width: 50%;
       border: 1px solid $gray-1;
       background-color: $gray-2;
     }
@@ -232,34 +252,50 @@
 }
 
 @media only screen and (min-width: 1025px) {
-  .pdf-viewer {
-    .col-left {
-      float: left;
-    }
-    .col-right {
-      float: none;
-      margin-left: percentage(376px/1110px);
-      border-bottom: 0;
-    }
-    .viewer-bottom {
-      margin-top: -1px;
-      border-bottom: 0;
-      border-top: 1px solid $gray-1;
-    }
-    .viewer-container {
-      overflow: auto;
-      .viewer-md {
-        display: block;
-        margin-top: -1px;
-        position: relative;
-        z-index: 1;
+  .no-touch {
+    .pdf-viewer {
+      overflow: hidden;
+      position: relative;
+        &:before {
+          content: '';
+          position: absolute;
+          left: percentage(405px/1170px);
+          bottom: rem-calc(30px);
+          top: rem-calc(30px);
+          width: 1px;
+          background-color: $gray-1;
+        }
+      .col-left {
+        width: percentage(376px/1110px);
+        float: left;
       }
-    }
-    .documents-frame {
-      width: 100%;
-      height: rem-calc(652px);
-      border: 0;
-      display: block;
+      .col-right {
+        width: percentage(734px/1110px);
+        float: none;
+        margin-left: percentage(376px/1110px);
+        border-bottom: 0;
+        border-left: 0;
+      }
+      .viewer-bottom {
+        margin-top: -1px;
+        border-bottom: 0;
+        border-top: 1px solid $gray-1;
+      }
+      .viewer-container {
+        overflow: auto;
+        .viewer-md {
+          display: block;
+          margin-top: -1px;
+          position: relative;
+          z-index: 1;
+        }
+      }
+      .documents-frame {
+        width: 100%;
+        height: rem-calc(652px);
+        border: 0;
+        display: block;
+      }
     }
   }
 }

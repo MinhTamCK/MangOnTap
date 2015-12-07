@@ -4,10 +4,17 @@ html {
 }
 .container-fluid {
   max-width: $container-lg + $grid-gutter-width;
+  padding: rem-calc(0 30px);
 }
 
 main {
   position: relative;
   z-index: 1;
   margin-top: rem-calc(-30px);
+}
+
+@media #{$screen-md-up} {
+  .container-fluid {
+    padding: rem-calc(0 15px);
+  }
 }

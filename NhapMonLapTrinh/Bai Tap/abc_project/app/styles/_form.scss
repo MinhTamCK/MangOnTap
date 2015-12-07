@@ -1,7 +1,17 @@
 // Form
+.btn {
+  padding: rem-calc(7px 16px);
+  font-family: $font-inpi-bold;
+  background-color: $gray-light-1;
+  .no-touch &:hover {
+    @include transition(.2s background);
+  }
+  &:active,&.active,
+  &:focus, &:active:focus {
+    box-shadow: none;
+  }
+}
 .btn-icon {
-  border: 1px solid $gray-1;
-  border-radius: 0;
   padding: rem-calc(13px 30px);
   min-width: rem-calc(108px);
   .icon {
@@ -11,13 +21,6 @@
     display: inline-block;
     vertical-align: middle;
     color: $black;
-  }
-  .no-touch &:hover {
-    background-color: $orange-1;
-    border-color: $orange-1;
-    .icon, .text {
-      color: $white;
-    }
   }
   &.revert {
     background-color: $orange-1;
@@ -30,24 +33,50 @@
     }
   }
 }
-.btn {
-  padding: rem-calc(8px 16px);
-  font-family: $font-inpi-bold;
-  background-color: $gray-light-1;
+.btn-icon, .btn-image {
+  border: 1px solid $gray-1;
+  border-radius: 0;
   .no-touch &:hover {
-    @include transition(.2s background);
+    background-color: $orange-1;
+    border-color: $orange-1;
+    .icon, .text {
+      color: $white;
+    }
   }
-  &:active,&.active,
-  &:focus, &:active:focus {
-    box-shadow: none;
+}
+.btn-image {
+  padding: rem-calc(11px 25px);
+  min-height: rem-calc(50px);
+  min-width: rem-calc(80px);
+  .icon-download {
+    background: url('../images/icon-download.png') no-repeat;
+    background-size: 100%;
+    width: rem-calc(30px);
+    height: rem-calc(23px);
+  }
+  .icon-imprimer {
+    background: url('../images/icon-imprimer.png') no-repeat;
+    background-size: 100%;
+    width: rem-calc(25px);
+    height: rem-calc(26px);
+  }
+  .no-touch &:hover {
+    .icon-download {
+      background-image: url('../images/icon-download-white.png');
+    }
+    .icon-imprimer {
+      background-image: url('../images/icon-imprimer-white.png');
+    }
   }
 }
 .btn-1 {
   border: 1px solid $gray-1;
-  .no-touch &:hover, &:active {
-    color: $white;
-    border: 1px solid  $orange-1;
-    background-color: $orange-1;
+  @media #{$screen-sm-up} {
+    .no-touch &:hover, &:active {
+      color: $white;
+      border: 1px solid  $orange-1;
+      background-color: $orange-1;
+    }
   }
   &.orange {
     background-color: $orange-1;
@@ -70,8 +99,27 @@
 .from-search {
   max-width: rem-calc(758px);
   margin: 0 auto;
+  position: relative;
   .form-control {
     border-radius: 0;
+  }
+  .word-block {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: rem-calc(54px);
+    text-align: left;
+    border: 1px solid $gray-1;
+    margin-top: -6px;
+    background-color: $white;
+    z-index: 2;
+    li {
+      padding: rem-calc(0 10px);
+      line-height: rem-calc(24px);
+      .no-touch &:hover {
+        background-color: #eee;
+      }
+    }
   }
 }
 .btn-group {
@@ -287,6 +335,7 @@ span.error-message {
     border-left: 1px solid $gray-1;
   }
 }
+
 @media #{$screen-xs-only} {
   .textarea {
     padding: rem-calc(15px);

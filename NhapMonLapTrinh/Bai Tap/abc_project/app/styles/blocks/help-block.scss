@@ -148,14 +148,15 @@
     padding-left: 0;
     padding-right: 0;
     border: none;
-    &.active {
-      background-color: transparent;
-      .filter-item {
+    .active {
+      &.filter-item {
         color: $orange-1;
       }
     }
-    .no-touch &:hover, &.active, &:focus {
-      color: $orange-1;
+    .filter-item {
+      .no-touch &:hover, &.active, &:focus {
+        color: $orange-1;
+      }
     }
   }
 }
@@ -174,6 +175,7 @@
     text-align: left;
     background-color: transparent;
     border: none;
+    display: inline-block;
     .icon {
       position: absolute;
       top: rem-calc(7px);

@@ -88,3 +88,33 @@ jQuery(function() {
   observation.observationValidation();
   observation.beforeHideObservationFrm();
 });
+
+
+var searchHelpValidation = (function($, window, undefined) {
+  'use strict';
+
+  var messageError = L10n.helpForm;
+  var searchHelpValidation = function() {
+    $('#search-help').validate({
+      errorElement: 'span',
+      errorClass: 'error-message',
+      rules: {
+        'input-search-help': 'required',
+      },
+      errorPlacement: function(error, element) {
+        if (element.attr('id') === 'input-search-help') {
+          element.parents().eq(1).append(error);
+        }
+      },
+      messages: messageError
+    });
+  };
+  return {
+    searchHelpValidation: searchHelpValidation
+  };
+
+})(jQuery, window);
+
+jQuery(function() {
+  searchHelpValidation.searchHelpValidation();
+});
