@@ -27,19 +27,14 @@ block container
           include blocks/accordion
       .table-opinions
         h3.title-1 Avis et décisions au BOPI
-        .table-responsive.visible-md-up: +table(
-          [
-            {link: {title: 'Nom de l’indication géographique', href:'javascript:void(0)'}},
-            {link: {title: 'N° d’homologation', href:'javascript:void(0)'}},
-            {link: {title: 'Date de dépôt', href:'javascript:void(0)'}}
-          ],
-          [
-            ['<a href="#" title="géographique3" class="title grey">géographique3</a>', '13/05/2014', 'IG 15-003'],
-            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014', 'IG 15-003'],
-            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003'],
-            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003'],
-            ['<a href="#" title="géographique3" class="title">géographique3</a>', '13/05/2014','IG 15-003']
-          ]
-        ).table.table-layout-fixed
-        include blocks/table-mobile
+        .table-group(data-sort-table='{"listIG":[{"titleName":"Lorem ipsum dolor sit amet, consectetu","link":{"url":"#","title":"cdc_ep_ig 12-001_savon-de-paris_1308.pdf","text":"cdc_ep_ig 12-001_savon-de-paris_1308.pdf"},"titleDate":"Lorem ipsum dolor sit amet, consectetu","date":"02\/02\/2014","num":"BOPI 12345777777777777777777","titleNum":"Lorem ipsum dolor sit amet, consectetu"},{"titleName":"Lorem ipsum dolor sit amet, consectetu","link":{"url":"#","title":"cdc_ho_inpi-1010_b\u00e9ret-basque_1433.pdf","text":"cdc_ho_inpi-1010_b\u00e9ret-basque_1433.pdf"},"titleDate":"Lorem ipsum dolor sit amet, consectetu","date":"02\/02\/2017","num":"BOPI xml","titleNum":"Lorem ipsum dolor sit amet, consectetu"},{"titleName":"Lorem ipsum dolor sit amet, consectetu","link":{"url":"#","title":"cdc_ep_ig 12-002_savon-de-rennes_1235.pdf","text":"cdc_ep_ig 12-002_savon-de-rennes_1235.pdf"},"titleDate":"Lorem ipsum dolor sit amet, consectetu","date":"02\/01\/2015","num":"BOPI Newest","titleNum":"Lorem ipsum dolor sit amet, consectetu"}],"mode-detail":true}')
+          .table-responsive.visible-md-up: +table(
+            [
+              {link: {title: 'Nom de l’indication géographique', href:'javascript:void(0)'}},
+              {link: {title: 'N° d’homologation', href:'javascript:void(0)'}},
+              {link: {title: 'Date de dépôt', href:'javascript:void(0)'}}
+            ],
+            []
+          ).table.table-layout-fixed
+          include blocks/table-mobile
   p.date-update.text-center Dernière mise à jour de la base de données : 18/06/2015

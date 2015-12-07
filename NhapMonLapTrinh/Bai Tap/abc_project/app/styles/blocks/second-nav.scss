@@ -6,7 +6,8 @@
   position: absolute;
   top: 0;
   left: 0;
-  padding: rem-calc(19px 40px);
+  z-index: 1;
+  padding: rem-calc(18px 40px 19px);
   font-weight: bold;
   background-color: $gray-2;
   border-radius: 0;
@@ -79,7 +80,7 @@
   }
 }
 @media #{$screen-sm-only} {
-  .block-1 .second-nav {
+  .detail-heading-block .second-nav {
     padding-top: rem-calc(70px);
   }
 }

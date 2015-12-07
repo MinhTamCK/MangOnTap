@@ -9,6 +9,8 @@ mixin detail-block()
       include ../blocks/form-popin
     if(isDocuments)
       include ../blocks/document-download
+    if(isMessNotice)
+      include ../blocks/mess-notice
     .full-background.content
       include ../blocks/nav-tab-detail
       if block

@@ -6152,7 +6152,7 @@ var PDFViewerApplication = {
       documentPropertiesButton: document.getElementById('documentProperties')
     });
 
-    if (this.supportsFullscreen) {
+    // if (this.supportsFullscreen) {
       var toolbar = SecondaryToolbar;
       this.pdfPresentationMode = new PDFPresentationMode({
         container: container,
@@ -6170,7 +6170,7 @@ var PDFViewerApplication = {
             handler: toolbar.pageRotateCcwClick.bind(toolbar) }
         ]
       });
-    }
+    // }
 
     PasswordPrompt.initialize({
       overlayName: 'passwordOverlay',
@@ -6271,7 +6271,7 @@ var PDFViewerApplication = {
   get supportsFullscreen() {
     var doc = document.documentElement;
     var support = !!(doc.requestFullscreen || doc.mozRequestFullScreen ||
-                     doc.webkitRequestFullScreen || doc.msRequestFullscreen);
+                     doc.webkitRequestFullscreen || doc.msRequestFullscreen);
 
     if (document.fullscreenEnabled === false ||
         document.mozFullScreenEnabled === false ||
@@ -6738,9 +6738,9 @@ var PDFViewerApplication = {
         pdfTitle = info['Title'];
       }
 
-      if (pdfTitle) {
-        self.setTitle(pdfTitle + ' - ' + document.title);
-      }
+      // if (pdfTitle) {
+        // self.setTitle(pdfTitle + ' - ' + document.title);
+      // }
 
       if (info.IsAcroFormPresent) {
         console.warn('Warning: AcroForm/XFA is not supported');
@@ -7086,9 +7086,9 @@ function webViewerInitialized() {
   }
 
   if (!PDFViewerApplication.supportsFullscreen) {
-    document.getElementById('presentationMode').classList.add('hidden');
-    document.getElementById('secondaryPresentationMode').
-      classList.add('hidden');
+    // document.getElementById('presentationMode').classList.add('hidden');
+    document.getElementById('secondaryPresentationMode').classList.add('hidden');
+    // document.getElementById('presentationModeBottom').classList.add('hidden');
   }
 
   if (PDFViewerApplication.supportsIntegratedFind) {

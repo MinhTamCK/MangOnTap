@@ -37,9 +37,9 @@
           changePage(currentPage);
         } else {
           ajaxGetTable(tbody, tableMobile);
+          setCurrenPage(element);
+          checkDisableButton(element, totalNumber);
         }
-        setCurrenPage(element);
-        checkDisableButton(element, totalNumber);
         return;
       }
       // Change page
@@ -51,9 +51,9 @@
         order = '';
         sort = '';
         ajaxGetTable(tbody, tableMobile);
+        setCurrenPage(element);
+        checkDisableButton(element, totalNumber);
       }
-      setCurrenPage(element);
-      checkDisableButton(element, totalNumber);
     });
   };
 
@@ -192,7 +192,7 @@
     for (var i = 0, len = pageList.length; i < len; i++) {
       pageList[i].page = parseInt(pageList[i].page);
       if (pageList[i].page === currentPage) {
-        navigationUrl = base_url+pageList[i].id;
+        navigationUrl = base_url + pageList[i].id;
         break;
       }
     }
@@ -248,9 +248,10 @@
         } else {
           // Call ajax get table
           ajaxGetTable(tbody, tableMobile);
+          setCurrenPage(el);
+          checkDisableButton(el, totalNumber);
         }
-        setCurrenPage(el);
-        checkDisableButton(el, totalNumber);
+
       });
       // previous page first
       el.find('a[title="previous-page"]').on('click', function(event) {
@@ -264,10 +265,11 @@
         } else {
           // Call ajax get table
           ajaxGetTable(tbody, tableMobile);
+          setCurrenPage(el);
+          checkDisableButton(el, totalNumber);
+          $(this).addClass('disabled');
         }
-        setCurrenPage(el);
-        checkDisableButton(el, totalNumber);
-        $(this).addClass('disabled');
+
       });
       // Next button
       el.find('a[title="next"]').on('click', function(event) {
@@ -286,9 +288,10 @@
         } else {
           // Call ajax get table
           ajaxGetTable(tbody, tableMobile);
+          setCurrenPage(el);
+          checkDisableButton(el, totalNumber);
         }
-        setCurrenPage(el);
-        checkDisableButton(el, totalNumber);
+
       });
       // Next page last
       el.find('a[title="next-page"]').on('click', function(event) {
@@ -302,10 +305,11 @@
         } else {
           // Call ajax get table
           ajaxGetTable(tbody, tableMobile);
+          setCurrenPage(el);
+          checkDisableButton(el, totalNumber);
+          $(this).addClass('disabled');
         }
-        setCurrenPage(el);
-        checkDisableButton(el, totalNumber);
-        $(this).addClass('disabled');
+
       });
       // Handele order
       if (!modeDetailPage) {
@@ -318,6 +322,7 @@
               order.addClass('des-sort');
               sortType = 'desc';
             } else {
+              order.removeClass('des-sort');
               order.addClass('asc-sort');
               sortType = 'asc';
             }
@@ -326,6 +331,26 @@
           });
         });
       }
+      // Handle check disable button
+      if (modeDetailPage) {
+        $(window).load(function() {
+          checkDisableButton(el, totalNumber);
+        });
+      }
+      // Not allow input character
+      el.find('input[name="inp-pagination"]').on('keydown', function(event) {
+        if (event.shiftKey) {
+          return false;
+        }
+        var keyCode = event.which;
+        if (!((keyCode > 47 && keyCode < 58) || (keyCode > 95 && keyCode < 106) || keyCode === 08)) {
+          if(keyCode === 13 ||keyCode === 37 || keyCode === 39)
+          {
+          }else{
+            event.preventDefault();
+          }
+        }
+      });
     },
     destroy: function() {
       // remove events

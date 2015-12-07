@@ -22,12 +22,13 @@
   var iframeContents = iframeDocuments.contents();
   var previousPDF = '';
   var nextPDF = '';
+  var downloadTablet = $('.viewer-sm a[title="download-file"]');
 
   var refreshActive = function() {
     pdfList.each(function() {
-      var $checkboxCustom = $(this).parents('div .checkbox-custom');
-      if ($checkboxCustom.hasClass('active')) {
-        $checkboxCustom.removeClass('active');
+      var $active = $(this).parents('div .group-checkbox');
+      if ($active.hasClass('active')) {
+        $active.removeClass('active');
       }
     });
   };
@@ -113,6 +114,7 @@
     }
     return index;
   };
+
   var disableButton = function() {
     previousPDF = iframeContents.find('button[title="Previous PDF"]');
     nextPDF = iframeContents.find('button[title="Next PDF"]');
@@ -143,6 +145,14 @@
     }
   };
 
+  var setHref = function(downloadMobile,href)
+  {
+    // Set href for mobile
+    downloadMobile.attr('href', href);
+    // Set href for tablet
+    downloadTablet.attr('href', href);
+  };
+
   function Plugin(element, options) {
     this.element = $(element);
     this.options = $.extend({}, $.fn[pluginName].defaults, this.element.data(), options);
@@ -160,16 +170,14 @@
         var src = urlView + '?file=' + options.renderPdf;
         iframeDocuments.attr('src', src);
         // Set active class item click
-        el.parents('div .checkbox-custom').addClass('active');
+        var groupCheckbox = el.parents('div.group-checkbox');
+        groupCheckbox.addClass('active');
         // Set current page
         currenPage = getIndex(el);
+        // Set href download
+        var downloadMobile = groupCheckbox.find('.download-file a[title="download-file"]');
+        setHref(downloadMobile,options.renderPdf);
       });
-      // Default CDC is selected
-      if(currenPage === -1)
-      {
-        currenPage = 0;
-        changePage(currenPage);
-      }
     },
     destroy: function() {
       // remove events

@@ -1,14 +1,14 @@
 // Variable
 @import "variable";
 #user-login {
-  margin: rem-calc(60px 0 40px);
+  margin: 60px 0 40px;
   label {
-    font-size: rem-calc(16px);
+    font-size: 16px;
     color: #666;
   }
   .form-text {
     display: block;
-    height: rem-calc(50px);
+    height: 50px;
     width: 100%;
     border-radius: 0;
     padding: 6px 12px;
@@ -24,7 +24,7 @@
     font-weight: bold;
   }
   .form-submit {
-    padding: rem-calc(8px 16px);
+    padding: 8px 16px;
     color: #fff;
     font-family: $font-inpi-bold;
     background-color: #ff5a5f;
@@ -38,7 +38,7 @@
 }
 @media only screen and (min-width: 768px) {
   #user-login {
-    max-width: rem-calc(700px);
+    max-width: 700px;
     margin: 40px auto;
   }
 }

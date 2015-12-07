@@ -392,7 +392,7 @@ html[dir='rtl'] #sidebarContent {
   overflow: auto;
   -webkit-overflow-scrolling: touch;
   position: absolute;
-  top: 76px;
+  top: 60px;
   right: 0;
   bottom: 60px;
   left: 0;
@@ -725,18 +725,14 @@ html[dir='rtl'] .splitToolbarButton > .toolbarButton {
 }
 
 .splitToolbarButton > .toolbarButton:hover,
-.splitToolbarButton > .toolbarButton:focus,
 .splitToolbarButton.toggled > .toolbarButton,
 .toolbarButton.textButton {
   opacity: .5;
 }
 .splitToolbarButton > .toolbarButton:hover,
-.splitToolbarButton > .toolbarButton:focus,
 .dropdownToolbarButton:hover,
 .overlayButton:hover,
-.overlayButton:focus,
-.toolbarButton.textButton:hover,
-.toolbarButton.textButton:focus {
+.toolbarButton.textButton:hover {
   opacity: .5;
 }
 .splitToolbarButton > .toolbarButton {
@@ -809,11 +805,9 @@ html[dir='rtl'] .dropdownToolbarButton {
 }
 
 .toolbarButton:hover,
-.toolbarButton:focus,
 .dropdownToolbarButton,
 .overlayButton,
-.secondaryToolbarButton:hover,
-.secondaryToolbarButton:focus {
+.secondaryToolbarButton:hover{
   opacity: .5;
 }
 
@@ -1179,7 +1173,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
   -moz-appearance: textfield; /* hides the spinner in moz */
   min-width: 16px;
   text-align: center;
-  width: 40px;
+  width: 26px;
   margin-right: 10px;
 }
 
@@ -1207,7 +1201,7 @@ html[dir='rtl'] .verticalToolbarSeparator {
 
 .toolbarLabel {
   min-width: 16px;
-  padding: 8px 0;
+  padding: 0;
   color: #000000;
   font-size: 16px;
   line-height: 20px;
@@ -1216,12 +1210,13 @@ html[dir='rtl'] .verticalToolbarSeparator {
   -moz-user-select: none;
   cursor: default;
   max-width: 250px;
+  word-wrap: break-word;
 }
 .toolbarLabel#numPages,
 .toolbarLabel#numPagesBottom {
   color: #666666;
   margin-right: 10px;
-  padding: 12px 0;
+  padding: 10px 0;
 }
 #thumbnailView {
   position: absolute;

@@ -17,6 +17,7 @@
   var outerDims = {
     width: $(window).width()
   };
+  var urlDefault = '';
 
   var getImage = function(options) {
     var imgSrc = '';
@@ -48,10 +49,20 @@
   };
 
   var setDefault = function(element, options) {
+    var imgSrc = getImage(options);
     if (element.is('img')) {
-      element.attr('src', getImage(options));
+      if(urlDefault !== imgSrc)
+      {
+        element.attr('src', imgSrc);
+        urlDefault = imgSrc;
+      }
     } else {
-      element.css('background-image', 'url(' + getImage(options) + ')');
+      var backgroundImg = 'url(' + imgSrc + ')';
+      if(urlDefault !== backgroundImg)
+      {
+        element.css('background-image', backgroundImg);
+        urlDefault = backgroundImg;
+      }
     }
   };
 

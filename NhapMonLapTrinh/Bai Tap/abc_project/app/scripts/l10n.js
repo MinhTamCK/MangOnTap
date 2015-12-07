@@ -36,5 +36,10 @@ var L10n = {
       required: 'Obligatoire / ne peut être vide',
       maxlength: ''
     }
+  },
+  helpForm:{
+    'input-search-help':{
+      required: 'Obligatoire / ne peut être vide'
+    }
   }
 };

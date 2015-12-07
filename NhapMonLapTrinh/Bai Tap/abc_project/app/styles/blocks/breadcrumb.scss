@@ -7,6 +7,11 @@
     font-size: rem-calc(14px);
     font-family: $font-inpi-thin;
   }
+  a {
+    .no-touch &:hover {
+      text-decoration: underline;
+    }
+  }
   li {
     position: relative;
     padding-right: rem-calc(20px);
