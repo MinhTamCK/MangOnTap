@@ -1,4 +1,4 @@
-#form-observation.collapse.visible
+#form-observation.collapse.visible.hidden-print
   .full-background.form-popin
     +link({title: 'close', href: '#form-observation'})(role="button", data-toggle="collapse", aria-expanded="true", aria-controls="form-observation").btn.btn-icon.btn-close
       span.icon.icon-cross
@@ -7,19 +7,19 @@
         .heading-popin.text-center
           h2.title-1 Formuler une observation sur l'IG Raquette basque
           p Attention : Dans le cadre de la procédure, les informations saisies seront transmises dans leur intégralité à l'INPI ainsi qu'au demandeur de l'IG (organisme de défense et de gestion). Les champs signalés par un * sont obligatoires.
-        .row
-          .form-group
-            .col-md-8.col-md-offset-2.col-sm-offset-0
-              label(for="enter-info").label-control Vous êtes *
-            .col-sm-9.col-md-6.col-md-offset-2.col-sm-offset-0
-              .form-select(data-select-form)
-                span.select-control
-                  span.icon.icon-arrows-updown
-                select(name="enter-info").form-control
-                  option(value="1") Madame
-                  option(value="2") Monsieur
-            .col-sm-3.col-md-2
-              +button({name: 'submit', type: 'submit'}).btn.btn-1.orange Envoyer
+        //- .row
+        //-   .form-group
+        //-     .col-md-8.col-md-offset-2.col-sm-offset-0
+        //-       label(for="enter-info").label-control Vous êtes *
+        //-     .col-sm-9.col-md-6.col-md-offset-2.col-sm-offset-0
+        //-       .form-select(data-select-form)
+        //-         span.select-control
+        //-           span.icon.icon-arrows-updown
+        //-         select(name="enter-info").form-control
+        //-           option(value="1") Madame
+        //-           option(value="2") Monsieur
+        //-     .col-sm-3.col-md-2
+        //-       +button({name: 'submit', type: 'submit'}).btn.btn-1.orange Envoyer
       .form-container
         fieldset.fieldset-form
           .form-group
@@ -30,16 +30,16 @@
           .row
             .col-sm-6
               .form-group
-                +input({name: 'last-name', textLabel: 'Votre nom *', clasLabel: 'label-control'}).form-control
+                +input({name: 'last-name', textLabel: 'Votre nom *', clasLabel: 'label-control'}).form-control(maxlength="255")
             .col-sm-6
               .form-group
-                +input({name: 'first-name', textLabel: 'Votre Prénom *', clasLabel: 'label-control'}).form-control
+                +input({name: 'first-name', textLabel: 'Votre Prénom *', clasLabel: 'label-control'}).form-control(maxlength="255")
             .col-sm-6
               .form-group
-                +input({name: 'career', textLabel: 'Vous société *', clasLabel: 'label-control'}).form-control
+                +input({name: 'career', textLabel: 'Vous société *', clasLabel: 'label-control'}).form-control(maxlength="255")
             .col-sm-6
               .form-group
-                +input({name: 'your-email', textLabel: 'Votre mél *', clasLabel: 'label-control'}).form-control
+                +input({name: 'your-email', textLabel: 'Votre mél *', clasLabel: 'label-control'}).form-control(maxlength="255")
         fieldset.fieldset-form
           .row
             .col-sm-6
@@ -61,7 +61,7 @@
                   a(title="tooltip", href="javascript:void(0)")
                     span.badge i
                     span.sr-only tooltip
-                textarea(name="observation-message", id="observation-message", class="form-control textarea", placeholder="3000 caractères maximim, au-delà, utilisez les pièces jointes")
+                textarea(name="observation-message", id="observation-message", class="form-control textarea", placeholder="3000 caractères maximim, au-delà, utilisez les pièces jointes" )
             .col-sm-6
               .files-group
                 .form-group
@@ -84,7 +84,7 @@
                           btnOpts: {name: 'delete-2', type: 'button', btnText: 'Supprimer', btnClass: 'btn btn-1 orange'}
                         }).thumbnail-1
                     .file-custom
-                      input(name="file-upload", id="file-upload", type="file")
+                      input(name="file-upload", id="file-upload", type="file", accept="application/pdf")
                       +button({name: 'upload-btn', type: 'button'}).btn.btn-1 Choisissez un fichier
 
         fieldset.fieldset-form

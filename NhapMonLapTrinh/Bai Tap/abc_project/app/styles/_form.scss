@@ -48,6 +48,7 @@
   padding: rem-calc(11px 25px);
   min-height: rem-calc(50px);
   min-width: rem-calc(80px);
+  background-color: $white;
   .icon-download {
     background: url('../images/icon-download.png') no-repeat;
     background-size: 100%;
@@ -174,7 +175,7 @@ span.error-message {
     border-radius: 0;
   }
   .label-control {
-    margin-bottom: rem-calc(20px);
+    margin-bottom: rem-calc(14px);
     color: $gray-3;
   }
 }
@@ -188,10 +189,14 @@ span.error-message {
   .radio-custom {
     display: inline-block;
     margin-right: rem-calc(40px);
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 .textarea {
   padding: rem-calc(30px);
+  resize: none;
 }
 
 .radio-custom,
@@ -293,12 +298,13 @@ span.error-message {
   border-bottom: 1px solid $gray-1;
   .alert {
     padding: 0;
-    margin-bottom: rem-calc(15px);
+    margin-bottom: rem-calc(10px);
     color: $gray-3;
   }
 }
 .alert-1 {
   font-size: rem-calc(14px);
+  margin-bottom: rem-calc(8px);
 }
 .file-custom {
   position: relative;
@@ -321,6 +327,9 @@ span.error-message {
     display: inline-block;
     margin-left: 15px;
   }
+  .btn-2 {
+    background-color: $gray-2;
+  }
 }
 .form-select {
   position: relative;
@@ -329,8 +338,8 @@ span.error-message {
     right: 1px;
     top: 1px;
     bottom: 1px;
-    width: rem-calc(50px);
-    padding: rem-calc(12px 18px);
+    width: rem-calc(40px);
+    padding: rem-calc(12px);
     background-color: $gray-light-1;
     border-left: 1px solid $gray-1;
   }

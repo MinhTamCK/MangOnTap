@@ -20,6 +20,7 @@
   max-width: 700px;
   margin: 0 auto;
   letter-spacing: -1px;
+  color: $black;
 }
 .jumbotron {
   padding: 0;
@@ -35,6 +36,12 @@
     text-transform: uppercase;
     border: 1px solid $gray-light-1;
     border-radius: 3px;
+    &:hover {
+      background-color: $gray-light-1;
+      border: 1px solid $gray-light-1;
+      color: $black;
+      cursor: default;
+    }
   }
 }
 @media #{$screen-sm-only} {

@@ -5,7 +5,7 @@
         h3.title-4 Cahier(s) des charges
         .group-checkbox
           +checkbox-custom({name: 'ckb-pecifications', data:'data-checkbox-download'})
-            +link({title: 'Homologué le 08/08/2014', href: 'javascript:void(0)',attr:{'data-render-pdf':'/data/compressed.tracemonkey-pldi-09.pdf#page=1'}})
+            +link({title: 'Homologué le 08/08/2014', href: 'javascript:void(0)',attr:{'data-render-pdf':'/data/compressed.tracemonkey-pldi-09.pdf#page=1','data-download':'2___INPI-DrupalArchitecture.pdf','id':'1461'}})
               strong Homologué&nbsp;
               |08/08/2014
           .download-file
@@ -24,8 +24,8 @@
               span.icon.icon-file
               span.text Télécharger
         .group-checkbox
-          +checkbox-custom({name: 'test1'})
-            +link({title: 'test 1 le 08/08/2014', href: 'javascript:void(0)',attr:{'data-render-pdf':'/data/cdc_ep_ig 15-002_savon-de-marseille_1543.pdf#page=2'}})
+          +checkbox-custom({name: 'test1',data:'data-checkbox-download'})
+            +link({title: 'test 1 le 08/08/2014', href: 'javascript:void(0)',attr:{'data-render-pdf':'/data/cdc_ep_ig 15-002_savon-de-marseille_1543.pdf#page=2','id':'123'}})
               strong Test 1&nbsp;
               |08/08/2014
           .download-file
@@ -33,7 +33,7 @@
               span.icon.icon-file
               span.text Télécharger
         .group-checkbox
-          +checkbox-custom({name: 'test2'})
+          +checkbox-custom({name: 'test2',data:'data-checkbox-download'})
             +link({title: 'test 2 le 08/08/2014', href: 'javascript:void(0)',attr:{'data-render-pdf':'/data/cdc_ep_ig 15-002_savon-de-marseille_1543.pdf#page=3'}})
               strong Test 2&nbsp;
               |08/08/2014
@@ -44,7 +44,7 @@
       li
         h3.title-4 Synthèse d’enquêtes publiques
         .group-checkbox
-          +checkbox-custom({name: 'ckb-inquiries'})
+          +checkbox-custom({name: 'ckb-inquiries',data:'data-checkbox-download'})
             +link({title: 'Homologué le 08/08/2014', href: 'detail-documents.html',attr:{'data-render-pdf':'/data/compressed.tracemonkey-pldi-09.pdf#page=1'}})
               strong Homologué&nbsp;
               |08/08/2014

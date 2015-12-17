@@ -145,12 +145,25 @@
     }
   };
 
-  var setHref = function(downloadMobile,href)
-  {
+  var setHref = function(downloadMobile, href) {
     // Set href for mobile
     downloadMobile.attr('href', href);
     // Set href for tablet
     downloadTablet.attr('href', href);
+  };
+
+  var checkInitPage = function() {
+    // Get url
+    var url = window.location.href;
+    var fileSelect = url.substr(url.indexOf('id=') + 3);
+    pdfList.each(function() {
+      var $aTag = $(this);
+      var $checkBox = $aTag.parent('.checkbox-custom').find('input[data-checkbox-download]');
+      if ($aTag.attr('id') === fileSelect) {
+        $checkBox.trigger('click');
+        return false;
+      }
+    });
   };
 
   function Plugin(element, options) {
@@ -167,7 +180,7 @@
       el.on('click', function(event) {
         event.preventDefault();
         refreshActive();
-        var src = urlView + '?file=' + options.renderPdf;
+        var src = urlView + '?file=' + options.renderPdf + '#page=1';
         iframeDocuments.attr('src', src);
         // Set active class item click
         var groupCheckbox = el.parents('div.group-checkbox');
@@ -176,7 +189,7 @@
         currenPage = getIndex(el);
         // Set href download
         var downloadMobile = groupCheckbox.find('.download-file a[title="download-file"]');
-        setHref(downloadMobile,options.renderPdf);
+        setHref(downloadMobile, options.renderPdf);
       });
     },
     destroy: function() {
@@ -201,6 +214,8 @@
 
   $(function() {
     $('[data-' + pluginName + ']')[pluginName]();
+    // Check select pdf
+    checkInitPage();
   });
 
 }(jQuery, window));

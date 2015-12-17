@@ -15,7 +15,8 @@
 
   var pluginName = 'ajax-search';
   var templateSearch = '<ul class="word-list list-unstyled">{{#each keyList}}<li>{{keyword}}</li>{{/each}}</ul>';
-  var ulTag, inputSearch, wordBlock,form = '';
+  var ulTag, inputSearch, wordBlock, form = '';
+  var flag = false;
 
   var getSearchData = function(param, url) {
     $.ajax({
@@ -27,7 +28,16 @@
         },
       })
       .done(function(data) {
-        genderSearch(data);
+        if (null != data && data.keyList.length > 0) {
+          if (flag) {
+            return;
+          }
+          genderSearch(data);
+        } else {
+          if (!wordBlock.hasClass('hidden')) {
+            wordBlock.addClass('hidden');
+          }
+        }
       });
   };
 
@@ -46,8 +56,7 @@
   var onClickKeyWord = function(liTagList) {
     liTagList.on('click', function() {
       inputSearch.val($(this).text());
-      if(!wordBlock.hasClass('hidden'))
-      {
+      if (!wordBlock.hasClass('hidden')) {
         wordBlock.addClass('hidden');
       }
       // Call submit form
@@ -74,7 +83,13 @@
         var keyword = $(this).val();
         // Check length >= 2
         if (2 <= keyword.length) {
+          if ($.trim(keyword) === '') {
+            return;
+          }
           getSearchData(keyword, url);
+        } else {
+          flag = true;
+          wordBlock.addClass('hidden');
         }
       });
     },
@@ -103,4 +118,3 @@
   });
 
 }(jQuery, window));
-

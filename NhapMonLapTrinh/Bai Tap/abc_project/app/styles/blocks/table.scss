@@ -1,7 +1,6 @@
 // Extend class
 .style-strong {
   font-family: $font-inpi-bold;
-  word-break: break-all;
   &.grey {
     color: $gray-3;
   }
@@ -23,7 +22,6 @@
   font-size: rem-calc(15px);
   .title {
     @extend .style-strong;
-    abbr { display: inline-block;}
   }
   .status {
     @extend .record-status;
@@ -56,6 +54,7 @@
   }
   strong {
     font-family: $font-inpi-bold;
+    font-weight: normal;
   }
   span {
     font-family: $font-inpi-regular;
@@ -79,6 +78,7 @@
     border-bottom:0;
     border-left: 1px solid $gray-1;
     vertical-align: top;
+    font-weight: normal;
   }
   > tbody > tr > td {
     padding: rem-calc(13px 20px);
@@ -88,6 +88,11 @@
   }
   .title {
     @extend .style-strong;
+    strong {
+      display: inline-block;
+      border-bottom: 1px dotted $black;
+      font-weight: normal;
+    }
   }
   th {
     position: relative;
@@ -149,7 +154,14 @@
   margin: rem-calc(40px) 0;
   font-family: $font-inpi-bold;
 }
-
+@media #{$screen-xs-only} {
+  .table-mobile {
+    .col-left,
+    .col-right {
+      word-break: break-all;
+    }
+  }
+}
 @media #{$screen-sm-up} {
   .table-mobile.text-center {
     text-align: left;

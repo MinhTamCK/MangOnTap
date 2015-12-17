@@ -19,7 +19,7 @@
   };
   var templateDesktop = '{{#each listIG}}<tr><td>{{#if link.pub_inquiry_open_date}}<a href="{{link.url}}" title="{{link.title}}" class="title">{{link.text}}</a>{{else}}<a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a>{{/if}}</td><td>{{date}}</td></tr>{{/each}}';
   var templateDesktopDetail = '{{#each listIG}}<tr><td><a href="{{link.url}}" title="{{link.title}}" class="title">{{link.text}}</a></td><td>{{date}}</td><td>{{num}}</td></tr>{{/each}}';
-  var templateMobile = '{{#each listIG}}<div class="items"><div class="item"><div class="col-left">{{titleName}}</div><div class="col-right"><a href="{{link.url}}" title="{{link.title}}" class="title grey">{{link.text}}</a></div></div><div class="item"><div class="col-left">{{titleDate}}</div><div class="col-right">{{date}}</div></div></div>{{/each}}';
+  var templateMobile = '{{#each listIG}}<div class="items"><div class="item"><div class="col-left">{{titleName}}</div><div class="col-right"><a href="{{link.url}}" title="{{link.title}}" class="title">{{link.text}}</a></div></div><div class="item"><div class="col-left">{{titleDate}}</div><div class="col-right">{{date}}</div></div></div>{{/each}}';
   var templateMobileDetail = '{{#each listIG}}<div class="items"><div class="item"><div class="col-left">{{titleName}}</div><div class="col-right"><a href="{{link.url}}" title="{{link.title}}" class="title">{{link.text}}</a></div></div><div class="item"><div class="col-left">{{titleDate}}</div><div class="col-right">{{date}}</div></div><div class="item"><div class="col-left">{{titleNum}}</div><div class="col-right">{{num}}</div></div></div>{{/each}}';
 
   var reLoadTable = function reLoadTable(tbody, dataSource, modelDetail) {
@@ -101,8 +101,11 @@
       // Init data table
       reLoadTable(tbody, dataSource, modelDetail);
       reloadMobile(tableMobile, dataSource, modelDetail);
-      // Sort table
-      tableDesktop.tablesorter();
+      // Set a initial sorting order
+      tableDesktop.tablesorter({
+        // sort on the first column,order asc
+        sortList: [[0, 0]]
+      });
       tableDesktop.bind('sortEnd', function() {
         getDataTable(tableDesktop, dataSource, tableMobile, modelDetail);
       });
