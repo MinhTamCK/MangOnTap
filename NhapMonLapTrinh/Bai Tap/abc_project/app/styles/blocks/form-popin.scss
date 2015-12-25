@@ -1,5 +1,5 @@
 .form-popin {
-  padding: rem-calc(60px 0 40px);
+  padding: rem-calc(40px 0);
   margin-bottom: rem-calc(30px);
   .btn {
     min-height: rem-calc(50px);
@@ -8,7 +8,6 @@
   .heading-popin {
     padding-left: rem-calc(160px);
     padding-right: rem-calc(160px);
-    padding-bottom: rem-calc(40px);
   }
   .label-control {
     font-weight: normal;
@@ -20,7 +19,7 @@
   .badge {
     width: rem-calc(20px);
     height: rem-calc(20px);
-    margin-left: rem-calc(10px);
+    margin-left: rem-calc(6px);
     font-size: rem-calc(14px);
     line-height: rem-calc(12px);
     font-weight: bold;
@@ -41,11 +40,14 @@
       font-weight: 600;
       background-color: $gray-2;
       border-radius: rem-calc(7px);
+      font-family: $font-inpi-regular;
     }
   }
 
 }
 .form-heading {
+  border: 0;
+  padding: 0;
   .form-group {
     margin-bottom: 0;
   }
@@ -65,8 +67,9 @@
 .thumbnail-1 {
   position: relative;
   max-width: rem-calc(100px);
-  margin-left: rem-calc(15px);
-  margin-right: rem-calc(15px);
+  min-width: rem-calc(100px);
+  margin-left: rem-calc(5px);
+  margin-right: rem-calc(5px);
   padding: 0;
   text-align: center;
   background-color: transparent;
@@ -78,6 +81,7 @@
     font-size: rem-calc(14px);
     color: $black;
     p {
+      @include text-overflow();
       margin-bottom: 0;
     }
   }
@@ -85,7 +89,6 @@
     position: absolute;
     top: 5px;
     left: 0;
-    display: none;
     min-width: rem-calc(100px);
     max-width: rem-calc(100px);
     padding-left: 0;
@@ -95,15 +98,15 @@
       background-color: $orange-1;
       border-color: $orange-1;
     }
+    .no-touch &.orange {
+      display: none;
+    }
   }
   .no-touch &:hover {
     .btn {
       display: block;
     }
   }
-}
-.captcha-block {
-  padding-top: 10px;
 }
 .form-container {
   .fieldset-form:last-of-type {
@@ -164,7 +167,10 @@
     .radio-custom .label-control {
       margin-top: 0;
     }
-    .files-group {padding-top: 0;}
+    .files-group {
+      padding-top: 0;
+      overflow: hidden;
+    }
     .alert-1 {
       margin-top: rem-calc(20px);
     }
@@ -172,14 +178,13 @@
   .btn-group-right {
     text-align: center;
     .btn {
-      min-width: rem-calc(130px);
+      min-width: rem-calc(120px);
       &:first-child {
         margin-left: 0;
       }
     }
   }
 }
-.form-right {float: right;}
 
 @media #{$screen-xs-only} {
   .form-right {
@@ -190,5 +195,14 @@
 @media #{$screen-sm-up} {
   .form-container {
     .col-sm-6:nth-child(2n+1) { clear: both;}
+    .form-right + .col-sm-6 { clear: none;}
+  }
+  .form-right {float: right;}
+}
+
+@media only screen and (max-width: 320px) {
+  .captcha-block  {
+    @include scale(0.86);
+    @include transform-origin(0 0);
   }
 }

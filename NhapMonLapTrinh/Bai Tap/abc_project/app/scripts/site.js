@@ -4,6 +4,16 @@
  * @version 1.0
  */
 
+// Defined Language
+L10n = L10n.france;
+
+/**
+ * Add method validation white spaces
+ */
+$.validator.addMethod('noSpace', function(value, element) {
+  return $.trim(value) !== '';
+});
+
 var searchFormValidation = (function($, window, undefined) {
   'use strict';
 
@@ -13,7 +23,10 @@ var searchFormValidation = (function($, window, undefined) {
       errorElement: 'span',
       errorClass: 'error-message',
       rules: {
-        'search_top': 'required',
+        'search_top': {
+          required: true,
+          noSpace: true
+        }
       },
       errorPlacement: function(error, element) {
         if (element.attr('id') === 'search_top') {
@@ -44,23 +57,34 @@ var observation = (function($, window, undefined) {
       errorElement: 'span',
       errorClass: 'error-message',
       rules: {
-        'enter-info': 'required',
+        'etes': 'required',
         'gender': 'required',
-        'last-name': 'required',
-        'first-name': 'required',
-        'career': 'required',
+        'last-name': {
+          required: true,
+          noSpace: true
+        },
+        'first-name': {
+          required: true,
+          noSpace: true
+        },
+        'career': {
+          required: true,
+          noSpace: true
+        },
         'your-email': {
           required: true,
-          email: true
+          email: true,
+          noSpace: true
         },
         'nature-advice': 'required',
         'observation-message': {
           required: true,
-          maxlength: 3000
+          maxlength: 3000,
+          noSpace: true
         },
       },
       errorPlacement: function(error, element) {
-        if (element.attr('name') === 'enter-info' || element.attr('name') === 'nature-advice') {
+        if (element.attr('name') === 'etes' || element.attr('name') === 'nature-advice') {
           element.parents().eq(1).append(error);
         } else {
           error.insertAfter(element);
@@ -70,16 +94,25 @@ var observation = (function($, window, undefined) {
     });
   };
 
-  var beforeHideObservationFrm = function()
-  {
-    $('#form-observation').on('hide.bs.collapse',function(){
-      $("html, body").animate({ scrollTop: 0 }, "fast");
+  var beforeHideObservationFrm = function() {
+    $('#form-observation').on('hide.bs.collapse', function() {
+      $("html, body").animate({
+        scrollTop: 0
+      }, "fast");
+    });
+  };
+
+  var hideMessage = function(){
+    $('#open-form').on('click',function(event) {
+      $('[data-close-message]')
+      .find('a[title="close"]')
+      .trigger('click');
     });
   };
 
   return {
     observationValidation: observationValidation,
-    beforeHideObservationFrm:beforeHideObservationFrm
+    beforeHideObservationFrm: beforeHideObservationFrm
   };
 
 })(jQuery, window);
@@ -99,7 +132,10 @@ var searchHelpValidation = (function($, window, undefined) {
       errorElement: 'span',
       errorClass: 'error-message',
       rules: {
-        'input-search-help': 'required',
+        'input-search-help': {
+          required: true,
+          noSpace: true
+        }
       },
       errorPlacement: function(error, element) {
         if (element.attr('id') === 'input-search-help') {

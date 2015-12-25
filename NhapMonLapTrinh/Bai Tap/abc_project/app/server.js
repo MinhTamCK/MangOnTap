@@ -19,14 +19,27 @@ app.use(bodyParser.json());
 app.use(methodOverride());
 app.use(express.static(path.join(__dirname, '../static')));
 
-app.get('/me', function(req, res){
+app.get('/me', function(req, res) {
   res.send({
     app: 'Frontend template',
     version: '1.0.0'
   });
 });
+app.post('/data/example/', function(req, res) {
+  res.send({
+    keyList: [{
+      keyword: 'abc'
+    }, {
+      keyword: 'xyz'
+    }, {
+      keyword: 'clm'
+    }, {
+      keyword: 'ntm'
+    }]
+  });
+});
 
-app.use(function(req, res){
+app.use(function(req, res) {
   res.setHeader('Content-Type', 'text/plain');
   res.send(JSON.stringify(req.body, null, 2));
 });

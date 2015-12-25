@@ -108,7 +108,12 @@ caption {
     border-width: 0 0 0 1px;
     border-style: solid;
     border-color: #ccc;
-    white-space: pre-wrap;
+    padding: 8px;
+    vertical-align: top;
+    word-break: break-all;
+  }
+  .title {
+    white-space: pre-line;
   }
 }
 tr,
@@ -155,3 +160,8 @@ img {
 .search-result .title-search {
   margin-bottom: 30px;
 }
+.guide {
+  padding: 20px;
+}
+
+.date-update { padding-top: 20px;}

@@ -342,8 +342,8 @@
         if (event.shiftKey) {
           return false;
         }
-        var keyCode = event.which;
-        if (!((keyCode > 47 && keyCode < 58) || (keyCode > 95 && keyCode < 106) || keyCode === 08)) {
+        var keyCode = event.keyCode || event.which;
+        if (!((keyCode > 47 && keyCode < 58) || (keyCode > 95 && keyCode < 106) || keyCode === 8)) {
           if(keyCode === 13 ||keyCode === 37 || keyCode === 39)
           {
           }else{

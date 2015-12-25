@@ -37,6 +37,7 @@
     font-weight: normal;
     p {
       margin-bottom: 0;
+      word-break: break-all;
     }
     .title-3 {
       margin-bottom: 0;
@@ -45,11 +46,16 @@
 
 }
 .list-document {
-  padding-right: rem-calc(60px);
+  padding-right: rem-calc(30px);
   .radio-custom {
     .label-control:before,
     .label-control:after {
       top: rem-calc(30px);
     }
+  }
+}
+@media #{$screen-sm-up} {
+  .list-document {
+    padding-right: rem-calc(60px);
   }
 }

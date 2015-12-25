@@ -56,7 +56,10 @@
     }
     a {
       display: inline-block;
-      word-wrap: break-word;
+      word-break: break-all;
+    }
+    strong {
+      font-family: $font-inpi-bold;
     }
     .download-file { display: none;}
     .group-checkbox {

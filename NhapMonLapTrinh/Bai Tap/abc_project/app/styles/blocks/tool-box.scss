@@ -8,6 +8,10 @@
   &.tool-box-bottom {
     margin-bottom: rem-calc(60px);
   }
+  .btn-1 {
+    padding-top: rem-calc(13px);
+    padding-bottom: rem-calc(13px);
+  }
   .pagination {
     margin: 0;
     .btn {
@@ -18,7 +22,6 @@
      @extend .float-left;
       padding: rem-calc(14px 21px);
       background-color: $gray-4;
-      border-radius: 0;
       .icon {
         font-size: rem-calc(8px);
         letter-spacing: -2px;
@@ -44,7 +47,8 @@
     font-family: $font-inpi-bold;
     color: $gray-3;
     text-align: center;
-    padding: rem-calc(12px 10px);
+    padding: rem-calc(12px 5px);
+    @include text-overflow();
   }
   .total-number {
     @extend .float-left;
@@ -110,6 +114,7 @@
     .btn-1 {
       margin-right: rem-calc(20px);
       display: inline-block;
+      float: left;
     }
   }
 }

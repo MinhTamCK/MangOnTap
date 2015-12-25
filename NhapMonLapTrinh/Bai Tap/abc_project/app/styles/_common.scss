@@ -6,8 +6,14 @@ input, select, textarea {
   -webkit-appearance: none;
 }
 a {
-  &:hover {
+  &:hover,
+  &:focus {
     text-decoration: none;
+  }
+}
+.wrapper {
+  b, strong {
+    font-weight: normal;
   }
 }
 .wrapper {
@@ -100,6 +106,16 @@ a {
     }
   }
 }
+.mess-notice {
+  margin-bottom: rem-calc(30px);
+  padding: rem-calc(30px 0);
+  p {
+    font-size: rem-calc(15px);
+    text-align: left;
+    padding-right: 50px;
+    margin-bottom: 0;
+  }
+}
 .visible {
   overflow: visible;
 }
@@ -138,5 +154,8 @@ a {
   .information-block {
     min-height: rem-calc(116px);
     margin-bottom: rem-calc(45px);
+  }
+  .mess-notice p {
+    text-align: center;
   }
 }
