@@ -1,7 +1,7 @@
 # Phần 12.Dịch vụ gửi nhận mail.
 =================================================
 1.SMTP là gì?
-  -Là chữ viết tắt của Simple Mail Transfer Protoco.
+  -Là chữ viết tắt của Simple Mail Transfer Protocol.
   -Là một giao thức truyền tải thư tín đơn giản.
   -Sử dụng trên máy chủ.
 2.SMTP Server là gì?
@@ -21,6 +21,7 @@
   -MIME(Multipurpose Internet Mail Extensions) là một chuẩn internet về định dạng cho thư điện tử.
 6.Các thành phần trong hệ thống mail server.
 	a.Mail box
+		-
 	b.User Agent
 		-Mail User Agent (MUA): đây là các chương trình gửi và nhận mail được cài đặt trên máy người dùng,
 		 nó giúp người dùng quản lý, soạn thảo, nhận và gửi mail một cách tiện lợi và nhanh chóng.
