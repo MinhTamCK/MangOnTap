@@ -1,0 +1,117 @@
+// Common
+ol,ul {
+  list-style: none;
+  margin: 0;
+}
+h4,
+h5 {
+  font-weight: 400;
+}
+.myob-margin {
+  &-small {
+    .px2em(~'margin', 20px 0)
+  }
+  &-medium {
+    .px2em(~'margin', 40px 0)
+  }
+  &-large {
+    .px2em(~'margin', 60px 0)
+  }
+}
+.myob-component-button {
+  .myob-btn-ghost {
+    background: transparent;
+    &.myob-btn-purple {
+      border: solid 1px @purple-primary;
+      .no-touch &:hover {
+        color: @btn-default-color;
+        background: @purple-primary;
+      }
+    }
+    &.myob-btn-white {
+      color: @btn-default-color;
+      border: solid 1px @white-grey;
+      .no-touch &:hover {
+        border: solid 1px @btn-default-color;
+      }
+    }
+  }
+}
+.btn{
+  font-family: @font-ubuntu;
+  transition: background-color .2s ease-in-out;
+}
+
+.modal{
+  .modal-dialog {
+    margin: 50px auto;
+  }
+  .modal-content {
+    border: solid 5px @gray-darker;
+  }
+  .modal-header {
+    .close {
+      color: @gray-light;
+      .px2em(~'font-size', 33px);
+      font-weight: normal;
+      opacity: 1;
+      margin: -37px -7px 0 0;
+      text-shadow: 0 0 2px rgba(0,0,0,.5);
+      .no-touch &:hover{
+        opacity: .6;
+      }
+    }
+  }
+}
+.myob-small-height {
+  min-height: 300px;
+}
+.myob-large-height {
+  min-height: 500px;
+}
+.myob-border-top {
+  border-top: 1px solid @gray;
+}
+.myob-border-bottom {
+  border-bottom: 1px solid @gray;
+}
+//-backdground-color
+.myob-bgd-orange {
+  background: @orange-ao;
+}
+.myob-bgd-teal-dark {
+  background: @teal-dark;
+}
+.myob-bgd-pink {
+  background: @pink;
+}
+.myob-bgd-yellow {
+  background: @yellow;
+}
+.myob-bgd-latte {
+  background: @latte;
+}
+.myob-bgd-teal {
+  background: @teal;
+}
+.myob-bgd-fluro {
+  background: @fluro;
+}
+.myob-bgd-blue-kounta {
+  background: @blue-kounta;
+}
+.myob-bgd-blue-edge {
+  background: @blue-edge;
+}
+.myob-bgd-green-pay {
+  background: @green-pay;
+}
+.myob-bgd-orange-pay {
+  background: @orange;
+}
+.myob-bgd-link-blue {
+  background: @blue-link;
+}
+.myob-bgd-green-roll {
+  background: @green-roll;
+}

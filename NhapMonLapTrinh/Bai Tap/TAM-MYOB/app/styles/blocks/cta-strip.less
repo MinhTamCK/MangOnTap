@@ -1,0 +1,32 @@
+.myob-component-cta-strip {
+  color: @white;
+  .px2em(~'padding', 20px 25px 0);
+  overflow: hidden;
+  text-align: center;
+  .myob-component-button {
+    a {
+      display: block;
+      .px2em(~'font-size', 14px);
+      .px2em(~'margin-bottom', 20px, 14px);
+    }
+  }
+  p {
+    .px2em(~'font-size', 18px);
+    .px2em(~'margin-bottom', 20px, 18px);
+  }
+}
+@media only screen and (min-width: @screen-sm) {
+  .myob-component-cta-strip {
+    p, .myob-component-button {
+      display: inline-block;
+    }
+    p, .myob-component-button a {
+      display: inline-block;
+      .px2em(~'margin-right', 20px);
+      margin-bottom: 0;
+    }
+    .myob-component-button {
+      .px2em(~'margin-bottom', 20px);
+    }
+  }
+}

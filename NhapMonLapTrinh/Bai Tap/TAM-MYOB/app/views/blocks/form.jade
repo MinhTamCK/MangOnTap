@@ -1,0 +1,44 @@
+.row
+  .col-sm-5
+    h3.sub-title-template 1. Default
+    .myob-component-form.panel.panel-default.text-center
+      .panel-heading
+        h3.panel-title This is the form header
+      .panel-body
+        p.myob-subheading This is a subheading
+        form(
+          name="form-standard"
+          action="send-email-and-store"
+          method="post"
+          )#form-standard
+          //**************************
+          //Drag an form elements here
+          //**************************
+          +input({
+            type: "submit",
+            name: "submit-form",
+            value: "Submit",
+            attr: {
+              title: "Submit",
+              class: "btn btn-default"
+            }
+          })
+
+.row
+  .col-sm-5
+    h3.sub-title-template 2. Success Message
+    .myob-component-form.panel.panel-default.text-center
+      .panel-heading
+        h3.panel-title Thank you $firstname
+      .panel-body
+        p.myob-success-message One of our MYOB Enterprise Representatives will contact you shortly.
+
+.row
+  .col-sm-5
+    h3.sub-title-template 3. Error Message
+    .myob-component-form.panel.panel-default.text-center
+      .panel-heading
+        h3.panel-title Error
+      .panel-body
+        .alert.alert-danger(role="alert") Form did not submit
+        +link('Back to form').btn.btn-default

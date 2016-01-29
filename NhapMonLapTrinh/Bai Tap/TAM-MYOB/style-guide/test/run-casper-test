@@ -1,0 +1,21 @@
+#!/bin/sh
+
+# for aws server
+
+# run single test file, and email file name if erroneous
+
+EXIT_STATUS=0
+
+# filename without extension
+f=$(basename "$1")
+f=${f%%.*}
+
+casperjs test --no-colors "$1" --xunit=/tmp/casper-errors-$f.xml > /tmp/casper-errors-$f.txt || EXIT_STATUS=$?
+
+# email errors
+if [ $EXIT_STATUS -ne 0 ]; then
+  echo "Casper error in $1"
+  echo "Subject: MYOB FE Tests Casper $1" `TZ="Australia/Sydney" date` | cat - /tmp/casper-errors-$f.xml | sendmail -f peter.orum@razorfish.com -t peter.orum@razorfish.com
+fi
+
+exit $EXIT_STATUS

@@ -1,0 +1,61 @@
+.alert {
+  line-height: 1.1; //- Additional to fix height box - Default not use.
+  &.alert-dismissable,
+  &.alert-dismissible {
+    .close {
+      font-weight: normal;
+      opacity: 1;
+      .no-touch &:hover {
+        opacity: .5;
+      }
+    }
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+  a{
+    text-decoration: underline;
+    .no-touch &:hover {
+      text-decoration: none;
+    }
+  }
+  &.alert {
+    &-success a,
+    &-info a,
+    &-warning a,
+    &-danger a {
+      color: @gray-tertiary;
+    }
+  }
+  &.alert {
+    &-success {
+      .close {
+        color: #5fa52c;
+      }
+    }
+    &-info {
+      .close {
+        color: #3e8acd;
+      }
+    }
+    &-warning {
+      .close {
+        color: #dc6915;
+      }
+    }
+    &-danger {
+      .close {
+        color: #ab1678;
+      }
+    }
+  }
+  .myob-rich-editor {
+    p, ul li, ol li {
+      .px2em(~'margin-bottom', 0);
+    }
+    ol,
+    ul {
+      padding-left: 15px;
+    }
+  }
+}

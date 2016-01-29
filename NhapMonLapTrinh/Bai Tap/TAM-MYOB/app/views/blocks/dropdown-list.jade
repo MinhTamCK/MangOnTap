@@ -1,0 +1,24 @@
+h3.sub-title-template  1. Default
+.myob-component-dropdown-list.form-group
+  +label("Dropdown List", "select-1")
+  +select(
+    "select-1",
+    "Please select an employee",
+    "1",
+    "2",
+    "3",
+    "4"
+  ).form-control
+
+h3.sub-title-template  2. Hide Label with Error State
+.myob-component-dropdown-list.form-group
+  +label("Dropdown List", "select-2").sr-only
+  +select(
+    "select-2",
+    "Please select an employee",
+    "1",
+    "2",
+    "3",
+    "4"
+  ).form-control.has-error
+  p.help-block Please select an option

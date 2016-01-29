@@ -1,0 +1,33 @@
+h3.sub-title-template  1. Default
+.myob-component-radio-group.form-group
+  label Radio Group
+  +custom-radio({
+    textLabel: "Sign up for your free 30 day trial",
+    name: "free-day-trial",
+    id: "radio-1",
+    value: "free-30-day"
+  })
+  +custom-radio({
+    textLabel: "Sign up for your free 60 day trial",
+    name: "free-day-trial",
+    id: "radio-2",
+    value: "free-60-day"
+  })
+
+h3.sub-title-template  2. Hide Label with Error State
+.myob-component-radio-group.form-group
+  label.sr-only Radio Group
+  +custom-radio({
+    textLabel: "Sign up for your free 30 day trial",
+    classLabel: "help-block",
+    name: "free-day-trial",
+    id: "radio-3",
+    value: "free-30-day"
+  })(checked="checked")
+  +custom-radio({
+    textLabel: "Sign up for your free 60 day trial",
+    classLabel: "help-block",
+    name: "free-day-trial",
+    id: "radio-4",
+    value: "free-60-day"
+  })

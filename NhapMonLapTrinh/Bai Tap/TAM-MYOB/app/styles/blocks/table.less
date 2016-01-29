@@ -1,0 +1,16 @@
+.myob-component-table{
+  .table {
+    > tbody > tr > td {
+      border-bottom: 1px solid @table-border-color;
+    }
+  }
+  .table-striped {
+    > tbody > tr:nth-of-type(odd) {
+      background-color: transparent;
+    }
+    > thead > tr,
+    > tbody > tr:nth-of-type(even) {
+      background-color: @table-bg-accent;
+    }
+  }
+}

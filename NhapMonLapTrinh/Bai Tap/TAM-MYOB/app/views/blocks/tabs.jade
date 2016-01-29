@@ -1,0 +1,15 @@
+.myob-component-tabs
+  ul.nav.nav-tabs.nav-justified.responsive
+    li.active: +link('Tab link active', '#tab1')(data-toggle="tab")
+    li: +link('Tab link not acitve', '#tab2')(data-toggle="tab")
+    li: +link('Tab link not acitve', '#tab3')(data-toggle="tab")
+    li: +link('Tab link not acitve', '#tab4')(data-toggle="tab")
+  .tab-content.responsive
+    .tab-pane.fade.in.active#tab1
+      p content tab 1
+    .tab-pane.fade#tab2
+      p content tab 2
+    .tab-pane.fade#tab3
+      p content tab 3
+    .tab-pane.fade#tab4
+      p content tab 4

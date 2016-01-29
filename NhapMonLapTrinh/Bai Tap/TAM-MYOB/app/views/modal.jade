@@ -1,0 +1,14 @@
+.modal.fade.myob-default-modal(tabindex='-1', role='dialog')
+  .modal-dialog
+    .modal-content
+      .modal-header
+        button.close(type='button', data-dismiss='modal', aria-label='Close')
+          span(aria-hidden=true) &times;
+      .modal-body.embed-responsive
+        iframe(
+          title="Lightbox for Page Content",
+          hspace="0",
+          scrolling="auto",
+          src="sitemap.html",
+          frameborder="0",
+        ).embed-responsive-item

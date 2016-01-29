@@ -1,0 +1,67 @@
+.myob-component-news-listing {
+  .px2em(~'margin', 60px 0);
+  .myob-archives-year {
+    .px2em(~'margin-bottom', 40px);
+    a {
+      font-family: @font-ubuntu;
+      font-size: @font-size-large;
+      color: @gray-light;
+      border-right: solid 1px @gray-light;
+      outline: none;
+      .px2em(~'padding', 0 15px);
+      transition: color .3s ease-out;
+      &:last-of-type {
+        border-right: none;
+      }
+      &.myob-link-active,
+      .no-touch &:hover {
+        color: @purple-primary;
+        text-decoration: none;
+      }
+    }
+  }
+  .myob-news-item {
+    .myob-news-heading {
+      font-size: @font-size-large;
+      a {
+        color: @gray-base;
+        .no-touch &:hover{
+          color: @purple-primary;
+          text-decoration: none;
+        }
+      }
+    }
+    border-bottom: solid 1px @gray-lighter;
+    .px2em(~'padding-bottom', 20px);
+    .px2em(~'margin-bottom', 20px);
+    &:last-of-type {
+      border-bottom: none;
+    }
+  }
+  .myob-news-date {
+    .px2em(~'margin', 10px 0 0);
+    font-size: @font-size-small;
+    .myob-icon-calendar {
+      color: @gray-light;
+      font-size: 1.714em;
+    }
+  }
+}
+@media only screen and (min-width: @screen-sm) {
+  .myob-component-news-listing {
+    .myob-news-item {
+      .myob-news-heading {
+        font-size: @font-size-h3;
+      }
+      .px2em(~'padding-bottom', 30px);
+      .px2em(~'margin-bottom', 30px);
+    }
+    .myob-news-date {
+      .px2em(~'margin', 20px 0 0);
+      .myob-icon-calendar {
+        .px2em(~'padding-right', 6px);
+        vertical-align: bottom;
+      }
+    }
+  }
+}

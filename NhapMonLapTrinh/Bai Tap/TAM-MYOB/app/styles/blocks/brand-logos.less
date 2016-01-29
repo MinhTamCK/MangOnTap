@@ -1,0 +1,36 @@
+.myob-component-brand-logos {
+  background-color: @gray-light-extra;
+  text-align: center;
+  .px2em(~'padding', 20px 0);
+  .myob-brand-logos-heading {
+    margin: 0;
+  }
+  .myob-brand-logos-list {
+    padding: 0;
+    > li {
+      display: inline-block;
+      .px2em(~'margin', 20px 10px 0);
+      height: 60px;
+      img {
+        max-height: 100%;
+        vertical-align: middle;
+      }
+      &:before {
+        content: "";
+        height: 100%;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+  }
+}
+@media only screen and (min-width: @screen-sm) {
+  .myob-component-brand-logos {
+    .px2em(~'padding', 20px 0 30px);
+    .myob-brand-logos-list {
+      > li {
+        .px2em(~'margin', 30px 35px 0);
+      }
+    }
+  }
+}

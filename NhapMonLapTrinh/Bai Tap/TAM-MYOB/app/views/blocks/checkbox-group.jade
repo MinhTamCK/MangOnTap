@@ -1,0 +1,29 @@
+h3.sub-title-template  1. Default
+.myob-component-checkbox-group.form-group
+  label Checkbox Group
+  +custom-checkbox({
+    textLabel: "Remember my email",
+    name: "checkbox-1",
+    value: "remember-email"
+  })
+  +custom-checkbox({
+    textLabel: "Remember my username",
+    name: "checkbox-2",
+    value: "remember-username"
+  })
+
+h3.sub-title-template  2. Hide Label with Error State
+.myob-component-checkbox-group.form-group
+  label.sr-only Checkbox Group
+  +custom-checkbox({
+    textLabel: "Remember my email",
+    classLabel: "help-block",
+    name: "checkbox-3",
+    value: "remember-email"
+  })
+  +custom-checkbox({
+    textLabel: "Remember my username",
+    classLabel: "help-block",
+    name: "checkbox-4",
+    value: "remember-username"
+  })

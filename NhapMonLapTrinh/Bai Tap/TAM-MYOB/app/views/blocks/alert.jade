@@ -1,0 +1,27 @@
+.alert.alert-dismissible.alert-success(role='alert',data-store-alert='{"id":"001","numday":1}')
+  button.close(type='button', data-dismiss='alert', aria-label='Close')
+    span(aria-hidden='true') &times;
+  .myob-rich-editor
+    | Success! This is the alert for success.
+    +link('This is a link')
+
+.alert.alert-dismissible.alert-info(role='alert')
+  button.close(type='button', data-dismiss='alert', aria-label='Close')
+    span(aria-hidden='true') &times;
+  .myob-rich-editor
+    | Did you know? This is the alert for information.
+    +link('This is a link')
+
+.alert.alert-dismissible.alert-warning(role='alert')
+  button.close(type='button', data-dismiss='alert', aria-label='Close')
+    span(aria-hidden='true') &times;
+  .myob-rich-editor
+    | Warning! This is the alert for a warning.
+    +link('This is a link')
+
+.alert.alert-dismissible.alert-danger(role='alert')
+  button.close(type='button', data-dismiss='alert', aria-label='Close')
+    span(aria-hidden='true') &times;
+  .myob-rich-editor
+    | Oops! This is the alert for an error.
+    +link('This is a link')

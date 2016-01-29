@@ -1,0 +1,23 @@
+{
+  "name": "myob-style-guide",
+  "description": "Draft style guide",
+  "main": "index.js",
+  "authors": [
+    "Peter Orum"
+  ],
+  "license": "ISC",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}

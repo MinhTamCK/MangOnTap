@@ -1,0 +1,5 @@
+#!/bin/sh
+
+rm ~/.forever/myob.log
+
+forever start -l myob.log --watch test-runner-server.js

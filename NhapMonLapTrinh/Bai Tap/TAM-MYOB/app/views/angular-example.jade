@@ -1,0 +1,214 @@
+extends layouts/template
+
+block vars
+  -title = 'Example angular'
+
+block container
+  style.
+    .template {background: #fff;}
+    .title-template {margin: 20px 0; border-bottom: 1px solid #ccc; padding-top: 56px;}
+    .group-1 {overflow: hidden;}
+    .template-header ul {padding-left: 0;}
+    .template-header > ul > li ul {border-bottom: 1px solid #ccc}
+    .template-header > ul > li li {margin: 0 10px;}
+    .template-header > ul > li li + li {border-top: 1px solid #ccc}
+    .template-header > ul > li ul {display: none;}
+    .template-header a {display: inline-block; padding: 10px; height: 36px;}
+    .template-header a:focus, .template-header a:visited {color: #666;}
+    .bg-temporary{background: #535457;padding: 20px;}
+    .template .container-fluid {padding-bottom: 30px;}
+    @media only screen and (min-width : 992px) {
+      .template-header {position: fixed; top: 0; left: 0; right: 0; z-index: 100; background-color: rgba(255,255,255,.9); font-size: 16px; height:36px; border-bottom: 1px solid #ccc;}
+      .template-header > ul > li {float: left; position: relative;}
+      .template-header > ul > li + li {border-left: 1px solid #ccc;}
+      .template-header > ul > li ul {position: absolute; top: 36px; left: 0; background-color: rgba(255,255,255,.9); width: 320px;}
+      .template-header > ul > li:hover ul {display: block;}
+      .no-touch .template-header a:hover {color: #0d79a0;}
+    }
+    @media only screen and (max-width : 991px) {
+      .template-header > ul > li {border-bottom: 1px solid #ccc;}
+      .template-header > ul > li > a {display: block; position: relative;}
+      .template-header > ul > li > a:before, .template-header > ul > li > a:after {content: ""; position: absolute; top: 50%; background-color: #666;}
+      .template-header > ul > li > a:before {width: 16px; height: 2px; margin-top: -1px; right: 10px;}
+      .template-header > ul > li > a:after {width: 2px; height: 16px; margin-top: -8px; right: 17px;}
+      .template-header > ul > li.active {border-bottom: 0;}
+      .template-header > ul > li.active a:after {display: none;}
+      .template-header > ul > li.active ul {display: block;}
+    }
+    .column-group .row{background: #E0FFFF;}
+    .column-group .col-md-8,
+    .column-group .col-sm-4,
+    .column-group .col-sm-8,
+    .column-group .col-sm-6,
+    .column-group .col-sm-3{background: #E6E6FA;}
+    .column-group .col-sm-4:nth-child(odd),
+    .column-group .col-sm-3:nth-child(odd),
+    .column-group .col-sm-6:nth-child(odd),
+    .column-group .col-sm-8:nth-child(odd){background: #E0FFFF;}
+    .blockquote-1{background: #3c4246;}
+    .blockquote-2{background: transparent;}
+  //- header.template-header
+    +nav-ul([
+      {
+        title: 'Phase 1', href: 'javascript:;', class: 'toggle-btn',
+        itemsMenu: [{
+            title: 'Alert',
+            href: '#alert'
+          },
+          {
+            title: 'Text Image',
+            href: '#text-image'
+          },
+          {
+            title: 'Title',
+            href: '#title'
+          },
+          {
+            title: 'Image',
+            href: '#image'
+          },
+          {
+            title: 'Text',
+            href: '#text'
+          },
+          {
+            title: 'Button',
+            href: '#button'
+          },
+          {
+            title: 'Brand Llogos',
+            href: '#brand-logos'
+          },
+          {
+            title: 'Tile',
+            href: '#tile'
+          },
+          {
+            title: 'Tabs',
+            href: '#tabs'
+          },
+          {
+            title: 'Column Control',
+            href: '#column-control'
+          },
+          {
+            title: 'Testimonial',
+            href: '#testimonial'
+          }
+        ]
+      },
+      {
+        title: 'Phase 2', href: 'javascript:;', class: 'toggle-btn',
+        itemsMenu: [
+          {
+            title: 'Column Control',
+            href: '#column-control'
+          },
+          {
+            title: 'Tabs',
+            href: '#tabs'
+          },
+          {
+            title: 'Testimonial',
+            href: '#testimonial'
+          },
+          {
+            title: 'Background Changer',
+            href: '#background'
+          },
+          {
+            title: 'Lightbox',
+            href: '#lightbox'
+          },
+          {
+            title: 'Pricing Box',
+            href: '#pricing-box'
+          },
+          {
+            title: 'Table',
+            href: '#table'
+          },
+          {
+            title: 'Video',
+            href: '#video'
+          },
+          {
+            title: 'List',
+            href: '#list'
+          },
+          {
+            title: 'Testimonial Slider',
+            href: '#testimonial-slider'
+          },
+          {
+            title: 'Accordion',
+            href: '#accordion'
+          }
+          ,
+          {
+            title: 'Hero',
+            href: '#hero'
+          }
+        ]
+      },
+      {
+        title: 'Phase 3', href: 'javascript:;', class: 'toggle-btn',
+        itemsMenu: [
+          {
+            title: 'Hidden Field',
+            href: '#hidden-field'
+          },
+          {
+            title: 'Text Field',
+            href: '#text-field'
+          },
+          {
+            title: 'Form',
+            href: '#form'
+          },
+          {
+            title: 'Checkbox Group',
+            href: '#checkbox-group'
+          },
+          {
+            title: 'Radio Group',
+            href: '#radio-group'
+          },
+          {
+            title: 'Dropdown List',
+            href: '#dropdown-list'
+          },
+          {
+            title: 'News Listing',
+            href: '#news-listing'
+          }
+        ]
+      }
+    ])
+  .container-fluid
+    .row
+      .container
+        h2.title-template Example angularJS
+        form(name="myForm", novalidate)
+          h3.title-template Text Field Component
+          text-field(data-info='{"id":"id-1","elementName":"name1","elementLabel":"elementLabel1","hideLabel":false,"placeHolder":"Placeholder","type":"email","errorMessage":{"required":"The field is required","email":"The field is not email"},"numberOfRows":"1","required":true,"formName":"myForm"}', form='myForm')
+
+          h3.title-template Checkbox Group Component
+          checkbox-group(data-info='{"elementName":"language[]","hideLabel":false,"elementLabel":"checkbox group","required":true,"errorMessage":"checkbox is required","items":[{"id":"id-cb-1","value":"value1","text":"labelText-1"},{"id":"id-cb-2","value":"value2","text":"labelText-2"}]}', form='myForm')
+
+          h3.title-template Radio Group Component
+          radio-group(data-info='{"elementName":"old[]","hideLabel":false,"elementLabel":"radio group","required":true,"errorMessage":"radio is required","items":[{"id":"id-rd-1","value":"value1","text":"labelText-1"},{"id":"id-rd-2","value":"value2","text":"labelText-2"}]}', form='myForm')
+
+          h3.title-template Dropdown List Component
+          dropdown-list(data-info='{"id":"dropdown1","elementName":"dropdown","hideLabel":false,"elementLabel":"dropdown list","required":true,"errorMessage":"dropdown list is required","selected":1,"items":[{"value":"1","text":"labelText-1"},{"value":"1","text":"labelText-1"}]}', value='{"value":"1","text":"labelText-1"}', form='myForm')
+
+          input(type="submit",value="Submit Form")
+
+        div(ng-controller="FormController as formCtrl")
+          form(action="/testform2", name="formCtrl.formDemo2", ng-submit="formCtrl.saveForm(this)" )
+            include blocks/radio-group
+            include blocks/dropdown-list
+            include blocks/text-field
+            include blocks/hidden-field
+            include blocks/checkbox-group
+            input(name="btnSubmit", type="submit",value="Submit")

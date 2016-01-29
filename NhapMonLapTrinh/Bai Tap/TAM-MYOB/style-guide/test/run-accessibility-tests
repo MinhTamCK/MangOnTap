@@ -1,0 +1,12 @@
+#!/bin/sh
+
+# crontab - daily
+# 45 00 * * * sudo -i -u ec2-user /home/ec2-user/myob/style-guide/test/run-accessibility-tests
+
+if [ -d /home/ec2-user ]; then
+  cd /home/ec2-user/myob/style-guide
+fi
+
+
+# run all tests
+find e2e -type f -name "*-test.js" -exec ./test/run-accessibility-test "{}" \;

@@ -1,0 +1,137 @@
+// Usage
+// Convert to em
+// .px2em(~"margin", 20px 30px 20px)
+// .px2em(~"font-size", 20px)
+// .px2em(~"font-size", 20px, 18px)
+// Convert to rem
+// .px2rem(~"margin", 20px 30px 20px)
+// .px2rem(~"font-size", 20px)
+// .px2rem(~"font-size", 20px, 18px)
+.px2units(@property, @unit, @target: @font-size-base, @default: @font-size-base) {
+  @n: length(@target);
+  .put(@i) when (extract(@target, @i) = auto), (extract(@target, @i) = 0) {
+    @item: extract(@target, @i);
+    .put((@i + 1), ~"@{item}");
+  }
+  .put(@i) when (default()) {
+    @item: unit(round(extract(@target, @i) / @default, 3), @unit);
+    .put((@i + 1), ~"@{item}");
+  }
+  .put(@i, @item) when (extract(@target, @i) = auto), (extract(@target, @i) = 0) and (@i <= @n) {
+    @nextItem: extract(@target, @i);
+    .put((@i + 1), ~"@{item} @{nextItem}");
+  }
+  .put(@i, @item) when (default()) and (@i <= @n) {
+    @nextItem: unit(round(extract(@target, @i) / @default, 3), @unit);
+    .put((@i + 1), ~"@{item} @{nextItem}");
+  }
+  .put(@i, @item) when (@i > @n) {
+    @{property}: @item;
+  }
+  .put(1);
+}
+.px2em(@property, @target: @font-size-base, @default: @font-size-base) {
+  .px2units(@property, em, @target, @default);
+}
+.px2rem(@property, @target: @font-size-base, @default: @font-size-base) {
+  .px2units(@property, rem, @target, @default);
+}
+
+// Usage
+// .border-radius() - default is 50%
+// .border-radius(20px) - all border is 20px
+// .border-radius(5px null 20px) - top left and bottom left border
+// .border-radius(null null 20px) - bottom left border
+.border-radius(@radius: 50%) {
+  @n: length(@radius);
+  @position: top-left, top-right, bottom-left, bottom-right;
+  .put(@i) when (@n = 1) and (@i <= length(@position)) {
+    @str: extract(@position, @i);
+    border-@{str}-radius: @radius;
+    .put(@i + 1);
+  }
+  .put(@i) when (@n > 1)  and (@i <= length(@position)) and (@i <= @n){
+    @r: extract(@radius, @i);
+    .check() when not (@r = null) {
+      @str: extract(@position, @i);
+      border-@{str}-radius: @r;
+    }
+    .check();
+    .put(@i + 1);
+  }
+  .put(1);
+}
+
+.cssreset() {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+// Keyframes
+.keyframes(@name, @rules) {
+  @-webkit-keyframes @name { @rules(); }
+  @keyframes @name { @rules(); }
+}
+
+// Font face
+// Usage
+// 1. Create new variables for fonts name. ex: @var1:...; @var2:...;
+// 2. Call by .font-faces(@var1 @var2)
+.font-faces(@names) {
+  .loop(@i) when (@i <= length(@names)) {
+    @name: extract(@names, @i);
+    @font-face {
+      font-family: @name;
+      src: url('../fonts/@{name}.woff2') format('woff2'),
+        url('../fonts/@{name}.woff') format('woff'),
+        url('../fonts/@{name}.ttf')  format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+    .loop(@i + 1);
+  }
+  .loop(1);
+}
+
+// Size
+.size(@width; @height: @width) {
+  width: @width;
+  height: @height;
+}
+
+.alert-variant(@background; @border; @text-color) {
+  background-color: @background;
+  border-color: @border;
+  color: @text-color;
+
+  hr {
+    border-top-color: darken(@border, 5%);
+  }
+  .alert-link {
+    color: @text-color;
+  }
+}
+.bg-transparent(@color, @alpha: 1){
+  background-color: rgba(red(@color), green(@color), blue(@color), @alpha);
+}
+
+// ............................................................
+// .for
+
+.for(@i, @n) {.-each(@i)}
+.for(@n)     when (isnumber(@n)) {.for(1, @n)}
+.for(@i, @n) when not (@i = @n)  {
+    .for((@i + (@n - @i) / abs(@n - @i)), @n);
+}
+
+// ............................................................
+// .for-each
+
+.for(@array)   when (default()) {.for-impl_(length(@array))}
+.for-impl_(@i) when (@i > 1)    {.for-impl_((@i - 1))}
+.for-impl_(@i) when (@i > 0)    {.-each(extract(@array, @i))}
+

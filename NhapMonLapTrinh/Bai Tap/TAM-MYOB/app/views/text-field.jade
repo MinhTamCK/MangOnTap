@@ -1,0 +1,10 @@
+.myob-component-text-field
+  .form-group
+        label(for="{{info.id}}",ng-hide="info.hideLabel") {{info.elementLabel}}
+        input.form-control(id="{{info.id}}", type="{{info.type}}", name="{{info.elementName}}", placeholder="{{info.placeHolder}}", ng-model="value", ng-if="info.numberOfRows <= 1", ng-required="info.required")
+        textarea#text-4.form-control(name="{{info.elementName}}",  placeholder="{{info.placeHolder}}", rows="{{info.numberOfRows}}", ng-if="info.numberOfRows > 1", ng-required="info.required")
+        div(ng-messages="myForm.email.$error",class="help-block", role="alert")
+           p(ng-message="email") {{info.errorMessage}} email
+           p(ng-message="required") {{info.errorMessage}} requered
+
+

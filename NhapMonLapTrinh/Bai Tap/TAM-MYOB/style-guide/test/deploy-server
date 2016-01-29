@@ -1,0 +1,3 @@
+#!/bin/sh
+
+scp * tests:/home/ec2-user/myob-test-server

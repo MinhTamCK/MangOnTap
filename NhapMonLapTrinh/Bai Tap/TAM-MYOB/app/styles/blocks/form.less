@@ -1,0 +1,29 @@
+.myob-component-form {
+  box-shadow: none;
+  .panel-heading {
+    background-color: @purple-primary;
+    .panel-title {
+      .px2em(~'font-size', 24px);
+    }
+  }
+  .panel-body {
+    background-color: @gray-light-extra;
+    .px2em(~'padding', 20px 40px);
+  }
+  .myob-subheading {
+    .px2em(~'margin-bottom', 20px);
+  }
+  .myob-success-message {
+    .px2em(~'margin-bottom', 30px);
+    &:before {
+      content: "";
+      .size(48px);
+      display: block;
+      .px2em(~'margin', 0 auto 15px);
+      background: url('../../images/icon-tick.png') no-repeat;
+    }
+  }
+  .alert {
+    text-align: left;
+  }
+}

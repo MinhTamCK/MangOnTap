@@ -1,0 +1,66 @@
+#!/bin/sh
+
+ERROR_EXIT=0
+
+#----------- create test branch of fe-develop+develop
+
+git fetch
+
+# get BE develop branch
+git checkout develop
+git pull
+
+# get FE fe-develop branch
+git checkout fe-develop
+git pull
+
+# create new test branch from fe-develop & merge develop into it
+git checkout -b fe-test
+git merge develop
+
+cd $HOME/myob/style-guide
+
+# add FE dependencies
+npm install
+bower install
+
+#----------- js
+
+# run tests
+gulp app > /tmp/lint-errors.txt
+
+# send email if any errors
+if [ $? -eq 0 ]; then
+  echo "js lint ok"
+else
+  echo "js lint error"
+  ERROR_EXIT=1
+  echo "Subject: MYOB FE Tests " `TZ="Australia/Sydney" date` | cat - /tmp/lint-errors.txt | sendmail -f peter.orum@razorfish.com -t peter.orum@razorfish.com
+fi
+
+#---------- less
+
+lessc --lint ../myob/ui.apps/src/main/content/jcr_root/etc/designs/myob/headlibs//css/style.less
+
+# send email if any errors
+if [ $? -eq 0 ]; then
+  echo "less lint ok"
+else
+  echo "less lint error"
+  ERROR_EXIT=1
+  echo "Subject: MYOB FE Tests Lint " `TZ="Australia/Sydney" date` | cat - /tmp/lint-errors.txt | sendmail -f peter.orum@razorfish.com -t peter.orum@razorfish.com
+fi
+
+#---------- revert
+
+cd $HOME/myob
+
+git checkout -f fe-develop
+
+# required due to different files in develop & fe-develop
+git add .gitignore
+
+# delete test branch
+git branch -D fe-test
+
+exit $ERROR_EXIT

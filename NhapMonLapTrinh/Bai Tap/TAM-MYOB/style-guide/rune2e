@@ -1,0 +1,12 @@
+# --cookies-file=e2e/tests/components/alerts/cookies.txt
+
+# run from style-guide folder
+# pass in a single component name, otherwise all are run
+
+if [ $# -eq 1 ]; then
+  #single
+  find e2e -type f -name "$1-test.js" -exec casperjs test "{}" \;
+else
+  # all
+  find e2e -type f -name "*-test.js" -exec casperjs test "{}" \;
+fi

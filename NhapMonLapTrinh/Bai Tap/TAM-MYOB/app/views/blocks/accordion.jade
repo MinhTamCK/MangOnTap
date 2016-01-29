@@ -1,0 +1,24 @@
+.myob-component-accordion
+  .row: .col-sm-8
+    .panel-group#myob-accordion(aria-multiselectable="true")
+      .panel.panel-default
+        .panel-heading#headingOne(role="tab")
+          h4.panel-title
+            +link('About MYOB Kounta', '#collapseOne')(role="button", data-toggle="collapse", data-parent="#myob-accordion", aria-controls="collapseOne").collapsed
+        #collapseOne.panel-collapse.collapse(role="tabpanel", aria-labelledby="headingOne")
+          .panel-body
+            p Content 1
+      .panel.panel-default
+        .panel-heading#headingTwo(role="tab")
+          h4.panel-title
+            +link('Purchasing MYOB Kounta', '#collapseTwo')(role="button", data-toggle="collapse", data-parent="#myob-accordion", aria-controls="collapseTwo").collapsed
+        #collapseTwo.panel-collapse.collapse(role="tabpanel", aria-labelledby="headingTwo")
+          .panel-body
+            p Content 2
+      .panel.panel-default
+        .panel-heading#headingThree(role="tab")
+          h4.panel-title
+            +link('Using MYOB Kounta', '#collapseThree')(role="button", data-toggle="collapse", data-parent="#myob-accordion", aria-controls="collapseThree").collapsed
+        #collapseThree.panel-collapse.collapse(role="tabpanel", aria-labelledby="headingThree")
+          .panel-body
+            p Content 3

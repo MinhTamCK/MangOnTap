@@ -1,0 +1,60 @@
+.myob-component-accordion {
+  .panel-heading {
+    padding: 0;
+  }
+  .panel {
+    box-shadow: none;
+    border: 0;
+    background-color: transparent;
+  }
+  .panel-group {
+    margin-bottom: 0;
+    .panel + .panel {
+      margin-top: 1px;
+    }
+  }
+  .panel-title {
+    position: relative;
+    > a {
+      display: block;
+      .px2em(~'padding', 20px 40px 20px 20px);
+      background-color: @purple-primary;
+      color: @white;
+      transition: background-color .3s linear;
+      .no-touch &:hover, &:focus {
+        text-decoration: none;
+        outline: none;
+      }
+      &:before, &:after {
+        content: '';
+        position: absolute;
+        background-color: @white;
+      }
+      &:before {
+        .size(12px, 2px);
+        right: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      &.collapsed {
+        background-color: @gray-light-extra;
+        color: @gray-tertiary;
+        .no-touch &:hover {
+          background-color: @list-group-hover-bg;
+        }
+        &:before, &:after {
+          background-color: @gray;
+        }
+        &:after {
+          .size(2px, 12px);
+          right: 25px;
+          top: 50%;
+          transform: translateY(-50%);
+        }
+      }
+    }
+  }
+  .panel-body {
+    .px2em(~'padding', 40px 20px);
+  }
+}
