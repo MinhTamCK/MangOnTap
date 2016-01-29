@@ -1,8 +1,0 @@
-.myob-component-radio-group.form-group
-  label(ng-hide="info.hideLabel") {{info.elementLabel}}
-  .checkbox(ng-repeat="item in info.items")
-    input.sr-only(id="{{item.id}}", type='radio', name="{{info.elementName}}", value="{{item.value}}", ng-checked="{{item.checked}}", ng-required="info.required")
-    label(for="{{item.id}}") {{item.labelText}}
-  //- Message error
-  div(ng-messages="myForm.language.$error",class="help-block", role="alert")
-           p(ng-message="required") {{info.errorMessage}}

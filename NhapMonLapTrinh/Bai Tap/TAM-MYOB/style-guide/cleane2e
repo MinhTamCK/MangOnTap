@@ -1,1 +1,0 @@
-find e2e/tests/components -type d \( -name screenshots -o -name failures \) -prune -exec rm -r "{}" \;
